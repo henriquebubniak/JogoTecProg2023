@@ -1,0 +1,47 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "cppbuild",
+			"label": "C/C++: clang arquivo de build ativo",
+			"command": "g++",
+			"args": [
+				"-fdiagnostics-color=always",
+				"-g",
+				"main.cpp",
+				"Jogo.cpp",
+				"GerenciadorGrafico.cpp",
+				"Ente.cpp",
+				"Entidade.cpp",
+				"Botao.cpp",
+				"CursorMenu.cpp",
+				"Menu.cpp",
+				"Fase.cpp",
+				"Plataforma.cpp",
+				"Fase1.cpp",
+				"GerenciadorColisoes.cpp",
+				"Personagem.cpp",
+				"Jogador1.cpp",
+				"Projetil.cpp",
+				"Jogador2.cpp"
+				"-I",
+				"/opt/homebrew/Cellar/sfml/2.5.1_1/include",
+				"-o",
+				"${fileDirname}/jogo",
+				"-L", 
+				"/opt/homebrew/Cellar/sfml/2.5.1_1/lib",
+				"-lsfml-graphics",
+				"-lsfml-window",
+				"-lsfml-system"
+			],
+			"options": {
+				"cwd": "${fileDirname}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": "build",
+			"detail": "compilador: /usr/bin/clang"
+		}
+	]
+}
