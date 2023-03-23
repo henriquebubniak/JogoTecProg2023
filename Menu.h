@@ -3,7 +3,7 @@
 #include "Ente.h"
 #include "GerenciadorGrafico.h"
 #include "Botao.h"
-#include "CursorMenu.h"
+#include "CursorBot.h"
 #include <list>
 using namespace std;
 
@@ -16,7 +16,7 @@ private:
     Ente voceMorreu;
     Jogo* jogo;
     list<Botao*> listaBotoes;
-    CursorMenu cursor;
+    CursorBot cursor;
 public:
     //construtora e destrutora
     Menu(GerenciadorGrafico* pgg, Jogo* j);
