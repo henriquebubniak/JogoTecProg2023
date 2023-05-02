@@ -4,14 +4,14 @@
 #include <list>
 using namespace std;
 
-class CursorMenu: public Ente
+class CursorBot: public Ente
 {
 protected:    
     list<Botao*>::iterator iteradorb;
     list<Botao*>* pListaBotoes;
 public:
-    CursorMenu(const char* cT = "imagens/cursor.png", list<Botao*>* plb = NULL);
-    ~CursorMenu() {}
+    CursorBot(const char* cT = "imagens/CursorBot.png", list<Botao*>* plb = NULL);
+    ~CursorBot() {}
     void setIterador(list<Botao*>::iterator ib);
     void avanca();
     void volta();

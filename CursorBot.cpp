@@ -1,19 +1,19 @@
-#include "CursorMenu.h"
+#include "CursorBot.h"
 
 //Construtora
-CursorMenu::CursorMenu (const char* cT, list<Botao*>* plb):
+CursorBot::CursorBot (const char* cT, list<Botao*>* plb):
 Ente (cT), pListaBotoes(plb)
 {}
 
 //Sets
-void CursorMenu::setIterador (list<Botao*>::iterator ib)
+void CursorBot::setIterador (list<Botao*>::iterator ib)
 {
     iteradorb = ib;
     caixa.setPosition((*iteradorb)->getPosicao() - Vector2f(100.f, 0.f));
 }
 
 //Funcionalidades
-void CursorMenu::avanca()
+void CursorBot::avanca()
 {
     if(iteradorb != --pListaBotoes->end())
     {
@@ -21,7 +21,7 @@ void CursorMenu::avanca()
         caixa.setPosition((*iteradorb)->getPosicao() - Vector2f(100.f, 0.f));
     }    
 }
-void CursorMenu::volta()
+void CursorBot::volta()
 {
     if(iteradorb != pListaBotoes->begin())
     {
@@ -29,4 +29,4 @@ void CursorMenu::volta()
         caixa.setPosition((*iteradorb)->getPosicao() - Vector2f(100.f, 0.f));
     }    
 }
-void CursorMenu::acao() {(*iteradorb)->acao();}
+void CursorBot::acao() {(*iteradorb)->acao();}
