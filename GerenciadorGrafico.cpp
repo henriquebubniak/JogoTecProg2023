@@ -20,17 +20,33 @@ void GerenciadorGrafico::incluiEnte(list<Entidade*>* ple)
 {
     list<Entidade*>:: iterator enti;
     for (enti = ple->begin(); enti != ple->end(); enti++)
-        entes.push_back(static_cast<Ente*>(*enti));    
+    {
+        if(*enti)
+            entes.push_back(static_cast<Ente*>(*enti));    
+        else 
+            cout << "ENTIDADE NULA NA LISTA PASSADA PARA GERENCIADOR GRAFICO" << endl;
+    }
 }
 void GerenciadorGrafico::incluiEnte(list<Ente*>* ple)
 {
     list<Ente*>:: iterator enti;
     for (enti = ple->begin(); enti != ple->end(); enti++)
-        entes.push_back(*enti);    
+    {
+        if(*enti)
+            entes.push_back(*enti);    
+        else 
+            cout << "ENTE NULO NA LISTA PASSADA PARA GERENCIADOR GRAFICO" << endl;
+    }
 }
-void GerenciadorGrafico::incluiEnte(Ente* e) {entes.push_back(e);}
-void GerenciadorGrafico::removeTodosEntes() {entes.clear();}
-void GerenciadorGrafico::removeEnte(Ente* e) {entes.remove(e);}
+void GerenciadorGrafico::incluiEnte(Ente* e) 
+{
+    if(e)
+        entes.push_back(e);
+    else
+        cout << "ENTE NULO PASSADO PARA GERENCIADOR GRAFICO" << endl;
+}
+void GerenciadorGrafico::removerTodosEntes() {entes.clear();}
+void GerenciadorGrafico::removerEnte(Ente* e) {entes.remove(e);}
 
 //Funcionalidades
 void GerenciadorGrafico:: atualizaJanela()

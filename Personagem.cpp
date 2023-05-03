@@ -6,7 +6,6 @@ Personagem::Personagem(Vector2f p, const char* cT, Fase* f, GerenciadorGrafico* 
     Entidade(p, cT, f, pgg),
     hp(h),
     velPadrao(v),
-    velocidade(Vector2f(0.f,0.f)),
     podePular(false),
     vivo(false)
 {}

@@ -8,7 +8,6 @@ protected:
     int hp;
     bool vivo;
     float velPadrao;
-    Vector2f velocidade;
     bool podePular;
     bool podeAtirar;
 public:
@@ -17,8 +16,6 @@ public:
     virtual ~Personagem();
 
     //Fun��es
-    virtual void move() = 0;
-    virtual void ataca() = 0;
     void recebeDano(int d);
 
     //Sets e gets

@@ -11,8 +11,6 @@ public:
     ~Plataforma(){}
 
     //Funcionalidades
-    void ataca(){}
-    void move(){}
     void dano(int d) {}
 };
 

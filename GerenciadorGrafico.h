@@ -29,8 +29,8 @@ public:
     void incluiEnte(Ente* e);
     void incluiEnte(list<Ente*>* ple);
     void incluiEnte(list<Entidade*>* ple);
-    void removeEnte(Ente* e);
-    void removeTodosEntes();
+    void removerEnte(Ente* e);
+    void removerTodosEntes();
 
     //Sets e gets
     bool get_JanelaAberta();

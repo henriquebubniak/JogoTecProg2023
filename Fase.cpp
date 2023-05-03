@@ -11,7 +11,7 @@ tempo(0)
 //Funcionalidades
 void Fase::atualiza()
 {
-    moveEntidades();
+    moverEntidades();
     atacaEntidades();
     gdc.testaColisoes();
     pGerenciadorGrafico->atualizaJanela();
@@ -20,18 +20,18 @@ void Fase::atualiza()
 void Fase::atacaEntidades()
 {
     for (list<Entidade*>::iterator i = listaEntidade.begin(); i != listaEntidade.end(); i++)
-        (*i)->ataca();
+        (*i)->atacar();
 }
-void Fase::moveEntidades()
+void Fase::moverEntidades()
 {
     for (list<Entidade*>::iterator i = listaEntidade.begin(); i != listaEntidade.end(); i++)
-        (*i)->move();
+        (*i)->mover();
 }
 void Fase::executaFase(int nJ)
 {
     adicionaPlataformas();
     adicionaJogador(nJ);
-    pGerenciadorGrafico->removeTodosEntes();
+    pGerenciadorGrafico->removerTodosEntes();
     pGerenciadorGrafico->incluiEnte(&listaEnte);
     pGerenciadorGrafico->incluiEnte(&listaEntidade);
     while (pGerenciadorGrafico->get_JanelaAberta())

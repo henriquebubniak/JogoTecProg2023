@@ -12,15 +12,16 @@ class Entidade: public Ente
 {
 protected:
     Fase* pfase;
+    Vector2f velocidade;
 public:
     //Construtora e Destrutora
-    Entidade(Vector2f p = Vector2f(0.f, 0.f), const char* cT = "./imagens/padrao.png", Fase* f = NULL, GerenciadorGrafico* pgg = NULL);
+    Entidade(Vector2f p = Vector2f(0.f, 0.f), const char* cT = "./imagens/padrao.png", Fase* f = NULL, GerenciadorGrafico* pgg = NULL, Vector2f v = Vector2f(0.f, 0.f));
     virtual ~Entidade();
 
     //Funcionalidades
     virtual void morrer() {};
-    virtual void ataca() {};
-    virtual void move() {};
+    virtual void atacar() {};
+    virtual void mover() {};
 
     //Sets e gets
     void setFase(Fase* f);

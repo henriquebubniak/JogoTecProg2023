@@ -9,7 +9,7 @@ tirosTambor(10),
 jog1(j)
 {}
 
-void Jogador2::move()
+void Jogador2::mover()
 {
     if (Keyboard::isKeyPressed(Keyboard::Right))
     {
@@ -39,11 +39,11 @@ void Jogador2::morrer()
     hp = 0;
     vivo = false;
     pfase->rmEntidade(static_cast <Entidade*> (this));
-    pGerenciadorGrafico->removeEnte(static_cast <Ente*> (this));
+    pGerenciadorGrafico->removerEnte(static_cast <Ente*> (this));
     if (!jog1->getVida())
         pfase->carregaTelaMorte();
 }
-void Jogador2::ataca()
+void Jogador2::atacar()
 {
     if (Keyboard::isKeyPressed(Keyboard::K) && podeAtirar)
     {

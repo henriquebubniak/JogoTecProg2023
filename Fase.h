@@ -26,7 +26,7 @@ public:
 
     //Funcionalidades
     void atualiza();
-    void moveEntidades();
+    void moverEntidades();
     void atacaEntidades();
     void executaFase(int nJ);
     virtual void adicionaJogador(int n){}

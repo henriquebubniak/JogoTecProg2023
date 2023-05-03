@@ -49,7 +49,7 @@ void Menu::selecaoNJogadores1()
     list <Botao*>::iterator ib;
     for(ib = listaBotoes.begin(); ib != listaBotoes.end(); ib++)
     {
-        pGerenciadorGrafico->removeEnte(static_cast<Ente*>(*ib));
+        pGerenciadorGrafico->removerEnte(static_cast<Ente*>(*ib));
         delete(*ib);
     }
     listaBotoes.clear();
@@ -65,7 +65,7 @@ void Menu::selecaoNJogadores2()
     list <Botao*>::iterator ib;
     for(ib = listaBotoes.begin(); ib != listaBotoes.end(); ib++)
     {
-        pGerenciadorGrafico->removeEnte(static_cast<Ente*>(*ib));
+        pGerenciadorGrafico->removerEnte(static_cast<Ente*>(*ib));
         delete(*ib);
     }
     listaBotoes.clear();
@@ -87,7 +87,7 @@ void Menu::carregaFase2(int nJ)
 }
 void Menu::telaMorte()
 {
-    pGerenciadorGrafico->removeTodosEntes();
+    pGerenciadorGrafico->removerTodosEntes();
     pGerenciadorGrafico->setPosicaoView(Vector2f(1280.f,800.f));
     listaBotoes.clear();
     pGerenciadorGrafico->incluiEnte(static_cast<Ente*>(&planoDeFundo));
