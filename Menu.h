@@ -3,30 +3,31 @@
 #include "Ente.h"
 #include "GerenciadorGrafico.h"
 #include "Botao.h"
+#include "Fase1.h"
+#include "Fase2.h"
 #include "CursorBot.h"
 #include <list>
 using namespace std;
 
-class Jogo;
-class Menu
+class Menu: public Ente
 {
 private:
-    GerenciadorGrafico* pGerenciadorGrafico;
-    Ente planoDeFundo;
-    Ente voceMorreu;
-    Jogo* jogo;
-    list<Botao*> listaBotoes;
-    CursorBot cursor;
+    Fase1* pFase1;
+    list<Botao<Menu>*> listaBotoes;
+    CursorBot<Menu> cursor;
 public:
     //construtora e destrutora
-    Menu(GerenciadorGrafico* pgg, Jogo* j);
+    Menu(GerenciadorGrafico* pgg = NULL, Fase1* pf1 = NULL);
     ~Menu();
 
     //metodos
-    void executa_menu();
+    void executar();
+    void incluirEntes();
     void selecaoNJogadores1();
     void selecaoNJogadores2();
-    void carregaFase1(int nJ);
+    void carrega1Fase1jog();
+    void carrega1Fase2jog();
+    void carrega2Fase1jog();
+    void carrega2Fase2jog();
     void carregaFase2(int nJ);
-    void telaMorte();
 };

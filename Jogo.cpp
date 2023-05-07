@@ -3,9 +3,10 @@
 //Construtora e destrutora
 Jogo::Jogo():
 gg(),
-menu(&gg, this),
-fase1(&gg, &menu)
-{menu.executa_menu();}
+menu(&gg, &fase1),
+fase1(&gg, &telaMorte),
+telaMorte(&gg, &fase1)
+{menu.executar();}
 Jogo::~Jogo()
 {}
 

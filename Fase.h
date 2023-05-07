@@ -6,22 +6,20 @@
 #include "Obstaculo.h"
 #include "GerenciadorColisoes.h"
 #include "GerenciadorGrafico.h"
-#include "Menu.h"
+#include "TelaMorte.h"
 
 using namespace std;
 
-class Fase
+class Fase: public Ente
 {
 protected:
     list<Entidade*> listaEntidade;
-    list<Ente*> listaEnte;
     GerenciadorDeColisoes gdc;
-    GerenciadorGrafico* pGerenciadorGrafico;
-    Menu* menu;
+    TelaMorte* telaMorte;
     float tempo;
 public:
     //Construtora e eestrutora
-    Fase(GerenciadorGrafico* pgg = NULL, Menu* m = NULL);
+    Fase(GerenciadorGrafico* pgg = NULL, TelaMorte* tm = NULL);
     ~Fase(){}
 
     //Funcionalidades
@@ -29,15 +27,13 @@ public:
     void moverEntidades();
     void atacaEntidades();
     void executaFase(int nJ);
-    virtual void adicionaJogador(int n){}
-    virtual void adicionaPlataformas(){}
+    virtual void removeJogador2()=0;
+    virtual void adicionaJogador2()=0;
     void carregaTelaMorte();
 
     //Adiciona e remove
     void adEntidade(Entidade* e);
-    void adEnte(Ente* e);
     void rmEntidade(Entidade* e);
-    void rmEnte(Ente* e);
 
     //Gets
     float get_tempo();
