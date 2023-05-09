@@ -32,9 +32,8 @@ jogo: $(OBJS)
 	$(MACOS_CXX) $(MACOS_CXXFLAGS) $(OBJS) -o jogo $(MACOS_LDFLAGS)
 
 # Regra para compilar para Linux
-linux: $(OBJ_DIR) $(SRCS)
-	$(LINUX_CXX) $(LINUX_CXXFLAGS) -c $(SRCS)
-	$(LINUX_CXX) $(OBJS) -o jogo $(LINUX_LDFLAGS)
+linux:  $(SRCS)
+	$(LINUX_CXX) $(LINUX_CXXFLAGS) $(SRCS) -o jogo $(LINUX_LDFLAGS)
 
 # Regra para compilar para macOS
 macos: $(SRCS)
@@ -43,6 +42,7 @@ macos: $(SRCS)
 # Regra para limpar
 clean:
 	rm -rf $(OBJ_DIR) jogo
+	rm *.o
 
 # Regra para gerar os arquivos .o
 $(OBJ_DIR)/%.o: %.cpp
