@@ -13,16 +13,14 @@ private:
     Plataforma plataforma1;
     Plataforma plataforma2;
     Plataforma plataforma3;
-    Ente fundoFase1;
     Jogador1 jogador1;
     Jogador2 jogador2;
 public:
     //Construtora e destrutora
-    Fase1(GerenciadorGrafico* pgg = NULL, Menu* m = NULL);
+    Fase1(GerenciadorGrafico* pgg = NULL, TelaMorte* tm = NULL);
     ~Fase1(){}
-
-    void adicionaJogador(int n);
-    void adicionaPlataformas();
+    void removeJogador2();
+    void adicionaJogador2();
     float getG();
 };
 

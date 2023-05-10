@@ -4,16 +4,40 @@
 #include <list>
 using namespace std;
 
+template <typename T>
 class CursorBot: public Ente
 {
 protected:    
-    list<Botao*>::iterator iteradorb;
-    list<Botao*>* pListaBotoes;
+    typename list<Botao<T>*>::iterator iteradorb;
+    list<Botao<T>*>* pListaBotoes;
 public:
-    CursorBot(const char* cT = "imagens/CursorBot.png", list<Botao*>* plb = NULL);
+    CursorBot(const char* cT = "imagens/CursorBot.png", list<Botao<T>*>* plb = NULL):
+    Ente (cT), pListaBotoes(plb)
+    {}
     ~CursorBot() {}
-    void setIterador(list<Botao*>::iterator ib);
-    void avanca();
-    void volta();
-    void acao();
+    void setIterador(typename list<Botao<T>*>::iterator ib)
+    {
+        iteradorb = ib;
+        caixa.setPosition((*iteradorb)->getPosicao() - Vector2f(100.f, 0.f));
+    }
+    void avanca()
+    {
+        if(iteradorb != --pListaBotoes->end())
+        {
+            iteradorb++;
+            caixa.setPosition((*iteradorb)->getPosicao() - Vector2f(100.f, 0.f));
+        }    
+    }
+    void volta()
+    {
+        if(iteradorb != pListaBotoes->begin())
+        {
+            iteradorb--;
+            caixa.setPosition((*iteradorb)->getPosicao() - Vector2f(100.f, 0.f));
+        }    
+    }
+    void acao()
+    {
+        (*iteradorb)->acao();
+    }
 };

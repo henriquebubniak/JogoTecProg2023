@@ -1,10 +1,11 @@
 #include "Fase.h"
 
 //Construtora e destrutora
-Fase::Fase(GerenciadorGrafico* pgg, Menu* m):
-pGerenciadorGrafico(pgg),
+Fase::Fase(GerenciadorGrafico* pgg, TelaMorte* tm):
+Ente("./imagens/FasePadrao.png", pgg),
+listaEntidade(),
 gdc(&listaEntidade, pgg),
-menu(m),
+telaMorte(tm),
 tempo(0)
 {}
 
@@ -29,11 +30,14 @@ void Fase::moverEntidades()
 }
 void Fase::executaFase(int nJ)
 {
-    adicionaPlataformas();
-    adicionaJogador(nJ);
     pGerenciadorGrafico->removerTodosEntes();
-    pGerenciadorGrafico->incluiEnte(&listaEnte);
+    if(nJ == 1)
+        removeJogador2();
+    if(nJ == 2)
+        adicionaJogador2();
     pGerenciadorGrafico->incluiEnte(&listaEntidade);
+    pGerenciadorGrafico->incluiEnte(static_cast<Ente*>(this));
+
     while (pGerenciadorGrafico->get_JanelaAberta())
     {
         Event event;
@@ -45,14 +49,12 @@ void Fase::executaFase(int nJ)
 }
 void Fase::carregaTelaMorte()
 {
-    menu->telaMorte();
+    telaMorte->executar();
 }
 
 //Adiciona e remove entes
 void Fase::adEntidade(Entidade* e) {listaEntidade.push_front(e);}
 void Fase::rmEntidade(Entidade* e) {listaEntidade.remove(e);}
-void Fase::adEnte(Ente* e) {listaEnte.push_back(e);}
-void Fase::rmEnte(Ente* e) {listaEnte.remove(e);}
 
 //Gets
 float Fase:: get_tempo() {return tempo;}
