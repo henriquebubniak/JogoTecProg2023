@@ -4,7 +4,7 @@
 OBJ_DIR = obj
 
 # Arquivos do projeto
-SRCS = main.cpp Jogo.cpp GerenciadorGrafico.cpp Ente.cpp Entidade.cpp Botao.cpp CursorBot.cpp Menu.cpp Fase.cpp Plataforma.cpp Fase1.cpp GerenciadorColisoes.cpp Personagem.cpp Jogador1.cpp Projetil.cpp Jogador2.cpp
+SRCS = *.cpp
 
 # Opções de compilação para Linux
 LINUX_CXX = g++
@@ -13,7 +13,8 @@ LINUX_LDFLAGS = -L/usr/lib/x86_64-linux-gnu -lsfml-graphics -lsfml-window -lsfml
 
 # Opções de compilação para macOS
 MACOS_CXX = g++
-MACOS_CXXFLAGS = -fdiagnostics-color=always -g -I/opt/homebrew/Cellar/sfml/2.5.1_1/include
+MACOS_CXXFLAGS = -fdiagnostics-color=always -g
+MACOS_INCLUDES = -I/opt/homebrew/Cellar/sfml/2.5.1_1/include
 MACOS_LDFLAGS = -L/opt/homebrew/Cellar/sfml/2.5.1_1/lib -lsfml-graphics -lsfml-window -lsfml-system
 
 # Objetos gerados
@@ -36,9 +37,8 @@ linux: $(OBJ_DIR) $(SRCS)
 	$(LINUX_CXX) $(OBJS) -o jogo $(LINUX_LDFLAGS)
 
 # Regra para compilar para macOS
-macos: $(OBJ_DIR) $(SRCS)
-	$(MACOS_CXX) $(MACOS_CXXFLAGS) -c $(SRCS)
-	$(MACOS_CXX) $(OBJS) -o jogo $(MACOS_LDFLAGS)
+macos: $(SRCS)
+	$(MACOS_CXX) $(MACOS_CXXFLAGS) $(SRCS) $(MACOS_INCLUDES) -o jogo $(MACOS_LDFLAGS)
 
 # Regra para limpar
 clean:
