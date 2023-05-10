@@ -36,6 +36,7 @@ void Fase::executaFase(int nJ)
     if(nJ == 2)
         adicionaJogador2();
     pGerenciadorGrafico->incluiEnte(&listaEntidade);
+    pGerenciadorGrafico->incluiEnte(static_cast<Ente*>(this));
 
     while (pGerenciadorGrafico->get_JanelaAberta())
     {
