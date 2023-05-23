@@ -30,6 +30,13 @@ private:
             else
                 cout << "pP nulo em Elemento::setProximo" << endl;
         }
+        void setAnterior(Elemento<TE>* pP)
+        {
+            if(pP)
+                pAnterior = pP;
+            else
+                cout << "pP nulo em Elemento::setProximo" << endl;
+        }
         Elemento<TE>* getProximo()
         {
             return pProximo;
@@ -105,6 +112,7 @@ public:
     {
         limpar();  
     }
+//Funcionalidades
     void incluir(TL* pT)
     {
         if (pT)
@@ -160,14 +168,21 @@ public:
                 if(*(it.getProximo()) == no)
                 {
                     it.getElementoAtual()->setProximo(it.getProximo()->getProximo());
-                    delete (it.getProximo());
-                    it = it.getElementoAtual();
+                    if (it.getProximo()->getProximo())
+                    {
+                        it.getProximo()->getProximo()->setAnterior(it.getElementoAtual());
+                        delete(it.getProximo());
+                    }
+                    else
+                    {
+                        pAtual = it.getElementoAtual();
+                        delete(it.getProximo());
+                    }
                 }
-
             }
-
         }
     }
+//Gets
     Elemento<TL>* getpPrimeiro()
     {
         return pPrimeiro;
