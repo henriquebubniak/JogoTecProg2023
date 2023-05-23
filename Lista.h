@@ -150,13 +150,13 @@ public:
         pPrimeiro = NULL;
         pAtual = NULL;
     }
-    void remover(TL no)
+    void remover(TL* no)
     {
         Iterador it;
         it = getPrimeiro();
         if(it.getElementoAtual())
         {
-            if (*(it.getElementoAtual()) == no)
+            if (it.getAtual() == no)
             {
                 it.getProximo()->setAnterior(NULL);
                 pPrimeiro = it.getProximo();
@@ -165,7 +165,7 @@ public:
             
             while(it.getProximo() != NULL)
             {
-                if(*(it.getProximo()) == no)
+                if(it.getProximo()->getInfo() == no)
                 {
                     it.getElementoAtual()->setProximo(it.getProximo()->getProximo());
                     if (it.getProximo()->getProximo())
