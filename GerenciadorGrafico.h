@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Ente.h"
+#include "Lista.h"
 #include<list>
 
 using namespace std;
@@ -12,7 +13,7 @@ class Projetil;
 class GerenciadorGrafico
 {
 private:
-    list<Ente*> entes;
+    Lista<Ente> entes;
     RenderWindow janela;
     View view;
 public:
