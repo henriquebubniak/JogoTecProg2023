@@ -13,7 +13,6 @@ class Projetil;
 class GerenciadorGrafico
 {
 private:
-    ListaEnte entes;
     RenderWindow janela;
     View view;
 public:
@@ -25,14 +24,7 @@ public:
     void atualizaJanela();
     bool pega_evento(Event* ev);
     void fecha_janela();
-    void imprimirEnte(Ente* e);
-
-    //Inclui e remove entidades
-    void incluiEnte(Ente* e);
-    void incluiEnte(list<Ente*>* ple);
-    void incluiEnte(list<Entidade*>* ple);
-    void removerEnte(Ente* e);
-    void removerTodosEntes();
+    void desenharEnte(Ente* e);
 
     //Sets e gets
     bool get_JanelaAberta();

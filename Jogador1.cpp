@@ -38,7 +38,6 @@ void Jogador1::morrer()
     hp = 0;
     vivo = false;
     pfase->rmEntidade(static_cast <Entidade*> (this));
-    pGerenciadorGrafico->removerEnte(static_cast <Ente*> (this));
     if (!jog2->getVida())
         pfase->carregaTelaMorte();
 }
@@ -80,7 +79,6 @@ void Jogador1::atacar()
         cout << "velocidade" << vx << ", " << vy << endl;
         Projetil* proj = new Projetil(7, Vector2f(getPosicao().x, getPosicao().y - 50), "./imagens/projetil.png", pfase, pGerenciadorGrafico, vx, vy);
         pfase->adEntidade(static_cast<Entidade*> (proj));
-        pGerenciadorGrafico->incluiEnte(static_cast<Ente*>(proj));
         podeAtirar = false;
         auxTempo = pfase->get_tempo();
         tirosTambor--;

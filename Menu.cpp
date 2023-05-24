@@ -17,67 +17,61 @@ cursor("./imagens/cursor.png", pgg, &listaBotoes)
 }
 Menu::~Menu(){}
 
-void Menu::incluirEntes()
-{
-    pGerenciadorGrafico->incluiEnte(static_cast<Ente*>(this));
-    list<Botao<Menu>*>::iterator bi = listaBotoes.begin();
-    for(bi = listaBotoes.begin(); bi != listaBotoes.end(); bi++)
-        pGerenciadorGrafico->incluiEnte(static_cast<Ente*>(*bi));
-    pGerenciadorGrafico->incluiEnte(static_cast<Ente*>(&cursor));
-}
-
-//Loop eventos
 void Menu::executar()
 {
-    pGerenciadorGrafico->removerTodosEntes();
-    incluirEntes();
     bool clique = true;
-    while (pGerenciadorGrafico->get_JanelaAberta())
+    if (Keyboard::isKeyPressed(Keyboard::Down))
     {
-        Event ev;
-        while (pGerenciadorGrafico->pega_evento(&ev))
-            if (ev.type == Event::Closed)
-                pGerenciadorGrafico->fecha_janela();
-        if (Keyboard::isKeyPressed(Keyboard::Down))
+        if (clique)
         {
-            if (clique)
-            {
-                cursor.avanca();
-                clique = false;
-            }
+            cursor.avanca();
+            clique = false;
         }
-        else if (Keyboard::isKeyPressed(Keyboard::Up))
-        {
-            if (clique)
-            {
-                cursor.volta();
-                clique = false;
-            }
-        }
-        else if (Keyboard::isKeyPressed(Keyboard::Enter))
-        {
-            if (clique)
-            {
-                cursor.acao();
-                clique = false;
-            }
-        }
-        else
-            clique = true;
-
-        pGerenciadorGrafico->atualizaJanela();
     }
+    else if (Keyboard::isKeyPressed(Keyboard::Up))
+    {
+        if (clique)
+        {
+            cursor.volta();
+            clique = false;
+        }
+    }
+    else if (Keyboard::isKeyPressed(Keyboard::Enter))
+    {
+        if (clique)
+        {
+            cursor.acao();
+            clique = false;
+        }
+    }
+    else
+        clique = true;
+
+    desenhar();
+}
+
+void Menu::desenhar()
+{
+    pGerenciadorGrafico->desenharEnte(static_cast<Ente*>(this));
+
+    for (list<Botao<Menu>*>::iterator it = listaBotoes.begin(); it != listaBotoes.end(); it++)
+        (*it)->desenhar();
+    
+    cursor.desenhar();
+    
 }
 
 
 
 void Menu::carrega1Fase1jog()
 {
-    pFase1->executaFase(1);
+    setAtivo(false);
+    pFase1->setAtivo(true);
 }
 void Menu::carrega1Fase2jog()
 {
-    pFase1->executaFase(2);
+    setAtivo(false);
+    pFase1->setAtivo(true);
 }
 void Menu::carrega2Fase1jog()
 {

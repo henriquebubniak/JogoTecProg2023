@@ -27,7 +27,8 @@ TelaMorte::~TelaMorte()
 
 void TelaMorte::recomecarFase()
 {
-    pFase1->executaFase(nJogadores);
+    setAtivo(false);
+    pFase1->setAtivo(true);
 }
 
 void TelaMorte::voltarMenu()
@@ -38,7 +39,6 @@ void TelaMorte::voltarMenu()
 void TelaMorte::executar(int nJ)
 {
     nJogadores = nJ;
-    pGerenciadorGrafico->removerTodosEntes();
     incluirEntes();
     bool clique = true;
     while (pGerenciadorGrafico->get_JanelaAberta())

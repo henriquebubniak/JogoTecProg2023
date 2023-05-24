@@ -6,46 +6,42 @@ Ente("./imagens/FasePadrao.png", pgg),
 listaEntidade(),
 gdc(&listaEntidade, pgg),
 telaMorte(tm),
-tempo(0)
+tempo(0),
+doisJogadores(false)
 {}
 
 //Funcionalidades
 void Fase::atualiza()
 {
-    moverEntidades();
-    atacaEntidades();
-    gdc.testaColisoes();
-    pGerenciadorGrafico->atualizaJanela();
-    tempo += 3;
+    
 }
-void Fase::atacaEntidades()
+void Fase::executarEntidades()
 {
     for (list<Entidade*>::iterator i = listaEntidade.begin(); i != listaEntidade.end(); i++)
-        (*i)->atacar();
+        (*i)->executar();
 }
-void Fase::moverEntidades()
-{
-    for (list<Entidade*>::iterator i = listaEntidade.begin(); i != listaEntidade.end(); i++)
-        (*i)->mover();
-}
-void Fase::executaFase(int nJ)
-{
-    pGerenciadorGrafico->removerTodosEntes();
-    if(nJ == 1)
-        removeJogador2();
-    if(nJ == 2)
-        adicionaJogador2();
-    pGerenciadorGrafico->incluiEnte(&listaEntidade);
-    pGerenciadorGrafico->incluiEnte(static_cast<Ente*>(this));
 
-    while (pGerenciadorGrafico->get_JanelaAberta())
+void Fase::executar()
+{
+    //lista entidades, this
+    executarEntidades();
+    gdc.testaColisoes();
+    desenhar();
+    tempo += 3;
+
+}
+
+void Fase::desenhar()
+{
+    for (list<Entidade*>::iterator it = listaEntidade.begin(); it != listaEntidade.end(); it++)
     {
-        Event event;
-        while (pGerenciadorGrafico->pega_evento(&event))
-            if (event.type == Event::Closed)
-                pGerenciadorGrafico->fecha_janela();
-        atualiza();
+        if(doisJogadores)
+            (*it)->desenhar();
+        else
+            if(*it != static_cast<Ente*>(getEnderecoJog2()))
+                (*it)->desenhar();
     }
+    
 }
 void Fase::carregaTelaMorte()
 {

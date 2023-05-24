@@ -3,7 +3,8 @@
 
 //Construtora e destrutora
 Ente::Ente(const char* caminhoTextura, GerenciadorGrafico* pgg, Vector2f p):
-pGerenciadorGrafico(pgg)
+pGerenciadorGrafico(pgg),
+ativo(false)
 {
     if (caminhoTextura)
     {
@@ -14,13 +15,20 @@ pGerenciadorGrafico(pgg)
     }
     caixa.setPosition(p);
 }
+
 Ente::~Ente(){}
 
 //Gets e sets
 Sprite Ente::getCaixa () {return caixa;}
+
 Vector2f Ente::getPosicao () {return caixa.getPosition();}
+
 FloatRect Ente::getGlobalBounds () {return caixa.getGlobalBounds();}
+
+bool Ente::getAtivo() {return ativo;}
+
 void Ente::setPosicao(Vector2f p) {caixa.setPosition(p);}
+
 void Ente::setImagem(const char* cT)
 {
     if (cT)
@@ -32,7 +40,12 @@ void Ente::setImagem(const char* cT)
     }
 }
 
-void Ente::seImprimir()
+void Ente::setAtivo(bool b)
 {
-    pGerenciadorGrafico->imprimirEnte(this);
+    ativo = b;
+}
+
+void Ente::desenhar()
+{
+    pGerenciadorGrafico->desenharEnte(this);
 }

@@ -19,8 +19,7 @@ public:
     //Construtora e destrutora
     Fase1(GerenciadorGrafico* pgg = NULL, TelaMorte* tm = NULL);
     ~Fase1(){}
-    void removeJogador2();
-    void adicionaJogador2();
+    Ente* getEnderecoJog2();
     float getG();
 };
 

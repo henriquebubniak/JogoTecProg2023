@@ -18,10 +18,10 @@ public:
         iEnte = lista.getpPrimeiro();
         while (iEnte.getProximo() != NULL)
         {
-            iEnte.getAtual()->seImprimir();
+            iEnte.getAtual()->desenhar();
             iEnte.operator++();
         }      
-        iEnte.getAtual()->seImprimir();
+        iEnte.getAtual()->desenhar();
     }
     void incluir(Ente* pE)
     {
