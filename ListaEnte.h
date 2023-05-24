@@ -1,19 +1,40 @@
+#pragma once
 #include "Lista.h"
 #include "Ente.h"
 
-class ListaEnte: public Lista<Ente>
+class ListaEnte
 {
 private:
-    /* data */
+    Lista<Ente> lista;
 public:
-    ListaEnte(/* args */);
-    ~ListaEnte();
+    ListaEnte():
+        lista()
+    {}
+    ~ListaEnte()
+    {}
+    void imprimirEntes()
+    {
+        Lista<Ente>::Iterador iEnte;
+        iEnte = lista.getpPrimeiro();
+        while (iEnte.getProximo() != NULL)
+        {
+            iEnte.getAtual()->seImprimir();
+            iEnte.operator++();
+        }      
+        iEnte.getAtual()->seImprimir();
+    }
+    void incluir(Ente* pE)
+    {
+        lista.incluir(pE);
+    }
+    void limpar()
+    {
+        lista.limpar();
+    }
+    void remover(Ente* pE)
+    {
+        lista.remover(pE);
+    }
 };
 
-ListaEnte::ListaEnte(/* args */)
-{
-}
 
-ListaEnte::~ListaEnte()
-{
-}

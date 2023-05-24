@@ -11,8 +11,8 @@ protected:
     typename list<Botao<T>*>::iterator iteradorb;
     list<Botao<T>*>* pListaBotoes;
 public:
-    CursorBot(const char* cT = "imagens/CursorBot.png", list<Botao<T>*>* plb = NULL):
-    Ente (cT), pListaBotoes(plb)
+    CursorBot(const char* cT = "imagens/CursorBot.png", GerenciadorGrafico* pgg = NULL,list<Botao<T>*>* plb = NULL):
+    Ente (cT, pgg), pListaBotoes(plb)
     {}
     ~CursorBot() {}
     void setIterador(typename list<Botao<T>*>::iterator ib)

@@ -31,3 +31,8 @@ void Ente::setImagem(const char* cT)
         caixa.setTexture(textura);
     }
 }
+
+void Ente::seImprimir()
+{
+    pGerenciadorGrafico->imprimirEnte(this);
+}

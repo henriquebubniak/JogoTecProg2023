@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Ente.h"
-#include "Lista.h"
+#include "ListaEnte.h"
 #include<list>
 
 using namespace std;
@@ -13,7 +13,7 @@ class Projetil;
 class GerenciadorGrafico
 {
 private:
-    Lista<Ente> entes;
+    ListaEnte entes;
     RenderWindow janela;
     View view;
 public:
@@ -25,6 +25,7 @@ public:
     void atualizaJanela();
     bool pega_evento(Event* ev);
     void fecha_janela();
+    void imprimirEnte(Ente* e);
 
     //Inclui e remove entidades
     void incluiEnte(Ente* e);

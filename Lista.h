@@ -1,3 +1,4 @@
+#pragma once
 template <typename TL>
 class Lista
 {
@@ -11,7 +12,7 @@ private:
         Elemento<TE>* pAnterior;
     public:
     //Construtora e destrutora
-        Elemento(TE pT = NULL):
+        Elemento(TE* pT = NULL):
             pInfo(pT),
             pProximo(NULL),
             pAnterior(NULL)
@@ -25,10 +26,7 @@ private:
     //Gets e sets
         void setProximo(Elemento<TE>* pP)
         {
-            if(pP)
-                pProximo = pP;
-            else
-                cout << "pP nulo em Elemento::setProximo" << endl;
+            pProximo = pP;
         }
         void setAnterior(Elemento<TE>* pP)
         {
@@ -78,7 +76,7 @@ public:
         TL* getAtual()
         {
             if(pAtual)
-                return pAtual->pInfo;
+                return pAtual->getInfo();
             return NULL;
         }
         Elemento<TL>* getElementoAtual()
@@ -137,13 +135,13 @@ public:
     void limpar()
     {
         Iterador it;
-        it = getPrimeiro();
+        it = getpPrimeiro();
         if(it.getElementoAtual())
         {
             while (it.getProximo() != NULL)
             {
                 delete(it.getElementoAtual());
-                it++;
+                it.operator++();
             }
             delete(it.getElementoAtual()); 
         }
@@ -153,7 +151,7 @@ public:
     void remover(TL* no)
     {
         Iterador it;
-        it = getPrimeiro();
+        it = getpPrimeiro();
         if(it.getElementoAtual())
         {
             if (it.getAtual() == no)
@@ -179,6 +177,7 @@ public:
                         delete(it.getProximo());
                     }
                 }
+                it.operator++();
             }
         }
     }

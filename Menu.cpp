@@ -6,7 +6,7 @@ Menu::Menu(GerenciadorGrafico* pgg, Fase1* pf1):
 Ente("./imagens/menu.png", pgg),
 pFase1(pf1),
 listaBotoes(),
-cursor("./imagens/cursor.png", &listaBotoes)
+cursor("./imagens/cursor.png", pgg, &listaBotoes)
 {
     listaBotoes.push_back(new Botao<Menu>("./imagens/botao1Fase1Jog.png", pgg, Vector2f(1400.f,400.f), this, &Menu::carrega1Fase1jog));
     listaBotoes.push_back(new Botao<Menu>("./imagens/botao1Fase2Jog.png", pgg, Vector2f(1400.f,700.f), this, &Menu::carrega1Fase2jog));

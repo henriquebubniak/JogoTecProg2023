@@ -54,12 +54,15 @@ void GerenciadorGrafico:: atualizaJanela()
     janela.clear();
     janela.setView(view);
     Lista<Ente>::Iterador ente;
-    for (ente = entes.getpPrimeiro(); ente.getProximo() != NULL; ente++)
-        janela.draw((ente.getAtual())->getCaixa());
+    entes.imprimirEntes();
     janela.display();
 }
 bool GerenciadorGrafico::pega_evento(Event* ev) {return janela.pollEvent(*ev);}
 void GerenciadorGrafico::fecha_janela() {janela.close();}
+void GerenciadorGrafico::imprimirEnte(Ente* e)
+{
+    janela.draw(e->getCaixa());
+}
 
 //Sets e gets
 bool GerenciadorGrafico::get_JanelaAberta() {return janela.isOpen();}

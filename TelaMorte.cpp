@@ -5,7 +5,7 @@
 TelaMorte::TelaMorte(GerenciadorGrafico* pgg, Fase1* pf1):
 Ente("./imagens/TelaMorte.png", pgg),
 listaBotoes(),
-cursor("./imagens/cursor.png", &listaBotoes),
+cursor("./imagens/cursor.png", pgg, &listaBotoes),
 nJogadores(1)
 {
     listaBotoes.push_back(new Botao<TelaMorte>("./imagens/Recomecar.png", pgg, Vector2f(1400.f,400.f), this, &TelaMorte::recomecarFase));

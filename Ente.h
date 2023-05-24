@@ -19,6 +19,7 @@ public:
     FloatRect getGlobalBounds();
     void setPosicao (Vector2f p);
     void setImagem(const char* cT = "./imagens/padrao.png");
+    void seImprimir();
 };
 
 
