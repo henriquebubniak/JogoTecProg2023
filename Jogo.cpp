@@ -22,12 +22,15 @@ void Jogo::executar()
         while (gg.pega_evento(&event))
             if (event.type == Event::Closed)
                 gg.fecha_janela();
+        gg.limpaJanela();
+
         if(menu.getAtivo())
             menu.executar();
         else if(fase1.getAtivo())
             fase1.executar();
         else if(telaMorte.getAtivo())
             telaMorte.executar();
+            
         gg.atualizaJanela();
     }
 }

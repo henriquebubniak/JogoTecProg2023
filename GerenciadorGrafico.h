@@ -25,6 +25,7 @@ public:
     bool pega_evento(Event* ev);
     void fecha_janela();
     void desenharEnte(Ente* e);
+    void limpaJanela();
 
     //Sets e gets
     bool get_JanelaAberta();

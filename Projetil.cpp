@@ -26,9 +26,6 @@ void Projetil::morrer()
 {
     pfase->rmEntidade(static_cast<Entidade*>(this));
     cout << "morreu projetil" << endl;
-    pGerenciadorGrafico->removerEnte(static_cast<Ente*>(this));
-    cout << "morreu projetil" << endl;
-    cout << "morreu projetil" << endl;
     delete(this);
     cout << "morreu projetil" << endl;
 }

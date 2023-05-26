@@ -37,8 +37,6 @@ public:
     //Gets
     float get_tempo();
     list<Entidade*>* get_lista_ent();
-    list<Projetil*>* get_lista_proj();
-    list<Obstaculo*>* get_lista_obst();
     GerenciadorGrafico* get_gerenciador_grafico();
     virtual Ente* getEnderecoJog2() = 0;
 

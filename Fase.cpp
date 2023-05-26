@@ -18,7 +18,13 @@ void Fase::atualiza()
 void Fase::executarEntidades()
 {
     for (list<Entidade*>::iterator i = listaEntidade.begin(); i != listaEntidade.end(); i++)
-        (*i)->executar();
+    {
+        if(doisJogadores)
+            (*i)->executar();
+        else
+            if(*i != static_cast<Ente*>(getEnderecoJog2()))
+                (*i)->executar();
+    }
 }
 
 void Fase::executar()
@@ -45,6 +51,8 @@ void Fase::desenhar()
 }
 void Fase::carregaTelaMorte()
 {
+    setAtivo(false);
+    telaMorte->setAtivo(true);
     telaMorte->executar();
 }
 

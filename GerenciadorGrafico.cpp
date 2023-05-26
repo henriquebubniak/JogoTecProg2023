@@ -19,7 +19,6 @@ GerenciadorGrafico::~GerenciadorGrafico(){}
 //Funcionalidades
 void GerenciadorGrafico:: atualizaJanela()
 {
-    janela.clear();
     janela.setView(view);
     janela.display();
 }
@@ -29,6 +28,7 @@ void GerenciadorGrafico::desenharEnte(Ente* e)
 {
     janela.draw(e->getCaixa());
 }
+void GerenciadorGrafico::limpaJanela() {janela.clear();}
 
 //Sets e gets
 bool GerenciadorGrafico::get_JanelaAberta() {return janela.isOpen();}

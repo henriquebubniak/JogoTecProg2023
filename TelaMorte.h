@@ -19,7 +19,7 @@ public:
     TelaMorte(GerenciadorGrafico* pgg = NULL, Fase1* pf1 = NULL);
     ~TelaMorte();
     void executar(int nJ = 1);
-    void incluirEntes();
+    void desenhar();
     void recomecarFase();
     void salvarPontuacao();
     void voltarMenu();

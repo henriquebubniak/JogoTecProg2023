@@ -5,7 +5,8 @@
 Jogador1::Jogador1(Vector2f p, const char* cT, Fase* f, GerenciadorGrafico* pgg , int h, float v, Jogador2* j):
 Personagem (p, cT, f, pgg, h, v),
 tirosTambor(10),
-jog2(j)
+jog2(j),
+auxTempo(0.0)
 {}
 
 void Jogador1::mover()

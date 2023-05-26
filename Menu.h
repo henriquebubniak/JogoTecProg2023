@@ -15,6 +15,7 @@ private:
     Fase1* pFase1;
     list<Botao<Menu>*> listaBotoes;
     CursorBot<Menu> cursor;
+    bool clique;
 public:
     //construtora e destrutora
     Menu(GerenciadorGrafico* pgg = NULL, Fase1* pf1 = NULL);
