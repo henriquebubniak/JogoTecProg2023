@@ -22,7 +22,7 @@ void GerenciadorGrafico::incluiEnte(list<Entidade*>* ple)
     for (enti = ple->begin(); enti != ple->end(); enti++)
     {
         if(*enti)
-            entes.push_back(static_cast<Ente*>(*enti));    
+            entes.incluir(static_cast<Ente*>(*enti));    
         else 
             cout << "ENTIDADE NULA NA LISTA PASSADA PARA GERENCIADOR GRAFICO" << endl;
     }
@@ -33,7 +33,7 @@ void GerenciadorGrafico::incluiEnte(list<Ente*>* ple)
     for (enti = ple->begin(); enti != ple->end(); enti++)
     {
         if(*enti)
-            entes.push_back(*enti);    
+            entes.incluir(*enti);    
         else 
             cout << "ENTE NULO NA LISTA PASSADA PARA GERENCIADOR GRAFICO" << endl;
     }
@@ -41,25 +41,28 @@ void GerenciadorGrafico::incluiEnte(list<Ente*>* ple)
 void GerenciadorGrafico::incluiEnte(Ente* e) 
 {
     if(e)
-        entes.push_back(e);
+        entes.incluir(e);
     else
         cout << "ENTE NULO PASSADO PARA GERENCIADOR GRAFICO" << endl;
 }
-void GerenciadorGrafico::removerTodosEntes() {entes.clear();}
-void GerenciadorGrafico::removerEnte(Ente* e) {entes.remove(e);}
+void GerenciadorGrafico::removerTodosEntes() {entes.limpar();}
+void GerenciadorGrafico::removerEnte(Ente* e) {entes.remover(e);}
 
 //Funcionalidades
 void GerenciadorGrafico:: atualizaJanela()
 {
     janela.clear();
     janela.setView(view);
-    list<Ente*>::iterator ente;
-    for (ente = entes.begin(); ente != entes.end(); ente++)
-        janela.draw((*ente)->getCaixa());
+    Lista<Ente>::Iterador ente;
+    entes.imprimirEntes();
     janela.display();
 }
 bool GerenciadorGrafico::pega_evento(Event* ev) {return janela.pollEvent(*ev);}
 void GerenciadorGrafico::fecha_janela() {janela.close();}
+void GerenciadorGrafico::imprimirEnte(Ente* e)
+{
+    janela.draw(e->getCaixa());
+}
 
 //Sets e gets
 bool GerenciadorGrafico::get_JanelaAberta() {return janela.isOpen();}
