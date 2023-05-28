@@ -7,13 +7,13 @@ class ListaEntidade
 {
 private:
     // Lista<Ente> lista;
-    Lista<Entidade> lista;
+    Lista<Entidade*> lista;
 public:
     // ListaEnte():
     ListaEntidade():
         lista()
     {}
-    ~ListaEnte()
+    ~ListaEntidade()
     {}
     /* void imprimirEntes()
     {
@@ -29,7 +29,15 @@ public:
     */
     void executarEntidades() //chama executar de cada entidade na lista
     {
-        
+        Lista<Entidade*>::Iterador iEntidade;
+	iEntidade = lista.getPrimeiro();
+	while (iEntidade.getProximo() != NULL)
+	{
+	    // if (doisJogadores) // esta na classe Fase -> construtora
+            iEntidade.getAtual()->executar();
+	    iEntidade.operator++(); // TODO alterar operator++ para ++ (corrigir sobrecarga de operador)
+	}
+	iEntidade.getAtual()->executar(); 
     }
     void incluir(Ente* pE)
     {
