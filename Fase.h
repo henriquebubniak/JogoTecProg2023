@@ -39,6 +39,7 @@ public:
     list<Entidade*>* get_lista_ent();
     GerenciadorGrafico* get_gerenciador_grafico();
     virtual Ente* getEnderecoJog2() = 0;
+    void setDoisJogadores(bool b);
 
     virtual float getG() = 0;
 };

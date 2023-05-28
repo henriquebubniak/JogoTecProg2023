@@ -64,3 +64,4 @@ void Fase::rmEntidade(Entidade* e) {listaEntidade.remove(e);}
 float Fase:: get_tempo() {return tempo;}
 list<Entidade*>* Fase::get_lista_ent() {return &listaEntidade;}
 GerenciadorGrafico* Fase::get_gerenciador_grafico() {return pGerenciadorGrafico;}
+void Fase::setDoisJogadores(bool b) {doisJogadores = b;}

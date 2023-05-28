@@ -70,6 +70,7 @@ void Menu::carrega1Fase1jog()
 void Menu::carrega1Fase2jog()
 {
     setAtivo(false);
+    pFase1->setDoisJogadores(true);
     pFase1->setAtivo(true);
 }
 void Menu::carrega2Fase1jog()
