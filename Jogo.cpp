@@ -6,14 +6,31 @@ gg(),
 menu(&gg, &fase1),
 fase1(&gg, &telaMorte),
 telaMorte(&gg, &fase1)
-{menu.executar();}
+{
+    menu.setAtivo(true);
+    executar();
+}
 Jogo::~Jogo()
 {}
 
-void Jogo::carregaFase1(int nJ)
+
+void Jogo::executar()
 {
-    fase1.executaFase(nJ);
-}
-void Jogo::carregaFase2(int nJ)
-{
+    while (gg.get_JanelaAberta())
+    {
+        Event event;
+        while (gg.pega_evento(&event))
+            if (event.type == Event::Closed)
+                gg.fecha_janela();
+        gg.limpaJanela();
+
+        if(menu.getAtivo())
+            menu.executar();
+        else if(fase1.getAtivo())
+            fase1.executar();
+        else if(telaMorte.getAtivo())
+            telaMorte.executar();
+            
+        gg.atualizaJanela();
+    }
 }

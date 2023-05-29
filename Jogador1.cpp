@@ -5,7 +5,8 @@
 Jogador1::Jogador1(Vector2f p, const char* cT, Fase* f, GerenciadorGrafico* pgg , int h, float v, Jogador2* j):
 Personagem (p, cT, f, pgg, h, v),
 tirosTambor(10),
-jog2(j)
+jog2(j),
+auxTempo(0.0)
 {}
 
 void Jogador1::mover()
@@ -38,7 +39,6 @@ void Jogador1::morrer()
     hp = 0;
     vivo = false;
     pfase->rmEntidade(static_cast <Entidade*> (this));
-    pGerenciadorGrafico->removerEnte(static_cast <Ente*> (this));
     if (!jog2->getVida())
         pfase->carregaTelaMorte();
 }
@@ -80,7 +80,6 @@ void Jogador1::atacar()
         cout << "velocidade" << vx << ", " << vy << endl;
         Projetil* proj = new Projetil(7, Vector2f(getPosicao().x, getPosicao().y - 50), "./imagens/projetil.png", pfase, pGerenciadorGrafico, vx, vy);
         pfase->adEntidade(static_cast<Entidade*> (proj));
-        pGerenciadorGrafico->incluiEnte(static_cast<Ente*>(proj));
         podeAtirar = false;
         auxTempo = pfase->get_tempo();
         tirosTambor--;

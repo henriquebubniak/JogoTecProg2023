@@ -17,6 +17,7 @@ protected:
     GerenciadorDeColisoes gdc;
     TelaMorte* telaMorte;
     float tempo;
+    bool doisJogadores;
 public:
     //Construtora e eestrutora
     Fase(GerenciadorGrafico* pgg = NULL, TelaMorte* tm = NULL);
@@ -24,12 +25,10 @@ public:
 
     //Funcionalidades
     void atualiza();
-    void moverEntidades();
-    void atacaEntidades();
-    void executaFase(int nJ);
-    virtual void removeJogador2()=0;
-    virtual void adicionaJogador2()=0;
+    void executarEntidades();
+    void executar();
     void carregaTelaMorte();
+    void desenhar();
 
     //Adiciona e remove
     void adEntidade(Entidade* e);
@@ -38,9 +37,9 @@ public:
     //Gets
     float get_tempo();
     list<Entidade*>* get_lista_ent();
-    list<Projetil*>* get_lista_proj();
-    list<Obstaculo*>* get_lista_obst();
     GerenciadorGrafico* get_gerenciador_grafico();
+    virtual Ente* getEnderecoJog2() = 0;
+    void setDoisJogadores(bool b);
 
     virtual float getG() = 0;
 };

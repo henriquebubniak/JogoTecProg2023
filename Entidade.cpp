@@ -16,3 +16,9 @@ void Entidade:: setFase(Fase* f)
         cout << "FASE NULA EM setFase() DE ENTIDADE" << endl;
 }
 Vector2f Entidade::getVelocidade() {return Vector2f(0.f,0.f);}
+
+void Entidade::executar()
+{
+    mover();
+    atacar();
+}

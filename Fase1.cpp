@@ -19,13 +19,7 @@ jogador2(Vector2f(300.f,0.f), "./imagens/jogador2.png", static_cast <Fase*> (thi
 
 float Fase1::getG() {return gravidade;}
 
-void Fase1::removeJogador2()
+Ente* Fase1::getEnderecoJog2()
 {
-    listaEntidade.remove(&jogador2);
-}
-
-void Fase1::adicionaJogador2()
-{
-    if (find(listaEntidade.begin(), listaEntidade.end(), &jogador2) == listaEntidade.end())
-        listaEntidade.push_front(&jogador2);
+    return static_cast<Ente*>(&jogador2);
 }

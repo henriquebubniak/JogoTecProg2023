@@ -27,7 +27,8 @@ TelaMorte::~TelaMorte()
 
 void TelaMorte::recomecarFase()
 {
-    pFase1->executaFase(nJogadores);
+    setAtivo(false);
+    pFase1->setAtivo(true);
 }
 
 void TelaMorte::voltarMenu()
@@ -38,53 +39,45 @@ void TelaMorte::voltarMenu()
 void TelaMorte::executar(int nJ)
 {
     nJogadores = nJ;
-    pGerenciadorGrafico->removerTodosEntes();
-    incluirEntes();
     bool clique = true;
-    while (pGerenciadorGrafico->get_JanelaAberta())
+    if (Keyboard::isKeyPressed(Keyboard::Down))
     {
-        Event ev;
-        while (pGerenciadorGrafico->pega_evento(&ev))
-            if (ev.type == Event::Closed)
-                pGerenciadorGrafico->fecha_janela();
-        if (Keyboard::isKeyPressed(Keyboard::Down))
+        if (clique)
         {
-            if (clique)
-            {
-                cursor.avanca();
-                clique = false;
-            }
+            cursor.avanca();
+            clique = false;
         }
-        else if (Keyboard::isKeyPressed(Keyboard::Up))
-        {
-            if (clique)
-            {
-                cursor.volta();
-                clique = false;
-            }
-        }
-        else if (Keyboard::isKeyPressed(Keyboard::Enter))
-        {
-            if (clique)
-            {
-                cursor.acao();
-                clique = false;
-            }
-        }
-        else
-            clique = true;
-
-        pGerenciadorGrafico->atualizaJanela();
     }
+    else if (Keyboard::isKeyPressed(Keyboard::Up))
+    {
+        if (clique)
+        {
+            cursor.volta();
+            clique = false;
+        }
+    }
+    else if (Keyboard::isKeyPressed(Keyboard::Enter))
+    {
+        if (clique)
+        {
+            cursor.acao();
+            clique = false;
+        }
+    }
+    else
+        clique = true;
+
+    desenhar();
+    
 }
 
-void TelaMorte::incluirEntes()
+void TelaMorte::desenhar()
 {
-    pGerenciadorGrafico->incluiEnte(static_cast<Ente*>(this));
+    pGerenciadorGrafico->desenharEnte(static_cast<Ente*>(this));
     list<Botao<TelaMorte>*>::iterator bi = listaBotoes.begin();
     for(bi = listaBotoes.begin(); bi != listaBotoes.end(); bi++)
-        pGerenciadorGrafico->incluiEnte(static_cast<Ente*>(*bi));
-    pGerenciadorGrafico->incluiEnte(static_cast<Ente*>(&cursor));
+        (*bi)->desenhar();
+    cursor.desenhar();
 }
 
 void TelaMorte::salvarPontuacao()

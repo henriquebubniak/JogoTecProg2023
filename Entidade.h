@@ -22,6 +22,7 @@ public:
     virtual void morrer() {};
     virtual void atacar() {};
     virtual void mover() {};
+    void executar();
 
     //Sets e gets
     void setFase(Fase* f);

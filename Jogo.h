@@ -21,6 +21,5 @@ public:
     Jogo();
     ~Jogo();
     //carrega fases
-    void carregaFase1(int nJ);
-    void carregaFase2(int nJ);
+    void executar();
 };

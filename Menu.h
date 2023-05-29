@@ -15,6 +15,7 @@ private:
     Fase1* pFase1;
     list<Botao<Menu>*> listaBotoes;
     CursorBot<Menu> cursor;
+    bool clique;
 public:
     //construtora e destrutora
     Menu(GerenciadorGrafico* pgg = NULL, Fase1* pf1 = NULL);
@@ -22,12 +23,9 @@ public:
 
     //metodos
     void executar();
-    void incluirEntes();
-    void selecaoNJogadores1();
-    void selecaoNJogadores2();
+    void desenhar();
     void carrega1Fase1jog();
     void carrega1Fase2jog();
     void carrega2Fase1jog();
     void carrega2Fase2jog();
-    void carregaFase2(int nJ);
 };
