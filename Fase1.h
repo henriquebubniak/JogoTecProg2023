@@ -13,6 +13,9 @@ private:
     Plataforma plataforma1;
     Plataforma plataforma2;
     Plataforma plataforma3;
+    Plataforma plataforma4;
+    Plataforma plataforma5;
+    Plataforma plataforma6;
     Jogador1 jogador1;
     Jogador2 jogador2;
 public:

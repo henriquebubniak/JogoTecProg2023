@@ -32,7 +32,7 @@ void Jogador1::mover()
     caixa.move(velocidade);
     velocidade.y += pfase->getG() * (0.016);
     podePular = false;
-    pGerenciadorGrafico->setPosicaoView(Vector2f(getPosicao().x, getPosicao().y - 700));
+    pGerenciadorGrafico->setPosicaoView(Vector2f(getPosicao().x, getPosicao().y - 200));
 }
 void Jogador1::morrer()
 {
