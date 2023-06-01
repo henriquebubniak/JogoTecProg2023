@@ -4,6 +4,7 @@
 #include "Obstaculo.h"
 #include "GerenciadorGrafico.h"
 #include<list>
+#include<iterator>
 
 using namespace std;
 

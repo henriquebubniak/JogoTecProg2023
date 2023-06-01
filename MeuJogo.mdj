@@ -13178,7 +13178,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"left": 1943,
-									"top": 865,
+									"top": 881,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 15,
@@ -13199,7 +13199,7 @@
 									"visible": null,
 									"font": "Arial;13;0",
 									"left": 1943,
-									"top": 880,
+									"top": 896,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 30,
@@ -13220,7 +13220,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"left": 1944,
-									"top": 835,
+									"top": 851,
 									"height": 13,
 									"alpha": -1.5707963267948966,
 									"distance": 15,
@@ -13239,7 +13239,7 @@
 							"tail": {
 								"$ref": "AAAAAAGIZOqD1GISuVc="
 							},
-							"points": "2112:880;2112:856;1776:856;1776:839",
+							"points": "2112:880;2112:872;1776:872;1776:839",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAGIZOzokut5p54="
@@ -15726,7 +15726,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGH3Zua4ZPsEd0="
 									},
-									"name": "Event*"
+									"name": "Event*",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -15969,7 +15970,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGIZB5OeqamAb4="
 									},
-									"name": "Vector2f"
+									"name": "Vector2f",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
