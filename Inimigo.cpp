@@ -66,7 +66,7 @@ void Inimigo::atacar()
         tirosTambor--;
     }
 
-    else if ((pfase->get_tempo() - auxTempo) > 2000.0)
+    else if ((pfase->get_tempo() - auxTempo) > 3000.0)
     {
         if (tirosTambor <= 0 && (pfase->get_tempo() - auxTempo) > 2000.0)
         {

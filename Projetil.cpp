@@ -5,7 +5,9 @@
 Projetil::Projetil(int f, Vector2f pos,  const char* cT, Fase* pf, GerenciadorGrafico* pgg, float vel_x, float vel_y):
 forca(f),
 Entidade(pos, cT, pf, pgg, Vector2f(vel_x, vel_y))
-{}
+{
+    setID(2);
+}
 Projetil::~Projetil() {pfase->rmEntidade(this);}
 
 //Funcionalidades
@@ -31,4 +33,4 @@ void Projetil::morrer()
 }
 
 //Gets
-int Projetil:: get_forca() {return forca;}
+int Projetil:: getForca() {return forca;}

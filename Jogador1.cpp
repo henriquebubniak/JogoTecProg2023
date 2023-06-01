@@ -46,6 +46,7 @@ void Jogador1::atacar()
 {
     if (Keyboard::isKeyPressed(Keyboard::F) && podeAtirar)
     {
+        float v = 7;
         float vx, vy;
         Vector2f posicaoMouse = pGerenciadorGrafico->converteCoord(Mouse::getPosition());
         posicaoMouse.y-=2500;
@@ -56,25 +57,25 @@ void Jogador1::atacar()
         if (tg < -0.08)
         {
             if(posicaoMouse.y < getPosicao().y)
-                vx = 14/sqrt(tg*tg + 1);
+                vx = v/sqrt(tg*tg + 1);
             else 
-                vx = -14/sqrt(tg*tg + 1);
+                vx = -v/sqrt(tg*tg + 1);
             vy = tg*vx;
         }
         else if (tg > 0.08)
         {
             if(posicaoMouse.y > getPosicao().y)
-                vx = 14/sqrt(tg*tg + 1);
+                vx = v/sqrt(tg*tg + 1);
             else 
-                vx = -14/sqrt(tg*tg + 1);
+                vx = -v/sqrt(tg*tg + 1);
             vy = tg*vx;
         }
         else
         {
             if (posicaoMouse.x > getPosicao().x)
-                vx = 14;
+                vx = v;
             else
-                vx = -14;
+                vx = -v;
             vy = 0;
         }
         cout << "velocidade" << vx << ", " << vy << endl;

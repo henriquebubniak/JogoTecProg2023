@@ -30,7 +30,25 @@ void GerenciadorDeColisoes:: testaColisoesEntidades ()
             posEntidade2 = (*j)->getGlobalBounds();
             if (proxPosEntidade1.intersects(posEntidade2))
             {
-                if (proxPosEntidade1.left < posEntidade2.left)
+                if (((*i)->getID() == 1 && (*j)->getID() == 2) ||
+                    ((*i)->getID() == 2 && (*j)->getID() == 1))//Colisao entre Projetil e Personagem
+                {
+                    if ((*i)->getID() == 1)
+                    {
+                        (*i)->receberDano((*j)->getForca());
+                        listaMorte.push_back(*j);
+                        if ((*i)->getHp() <= 0)
+                            listaMorte.push_back(*i);
+                    }
+                    else
+                    {
+                        (*j)->receberDano((*i)->getForca());
+                        listaMorte.push_back(*i);
+                        if ((*j)->getHp() <= 0)
+                            listaMorte.push_back(*j);
+                    }                    
+                }
+                else if (proxPosEntidade1.left < posEntidade2.left)
                 {
                     if (proxPosEntidade1.top < posEntidade2.top && proxPosEntidade1.top + proxPosEntidade1.height < posEntidade2.top + posEntidade2.height)
                     {
@@ -48,6 +66,7 @@ void GerenciadorDeColisoes:: testaColisoesEntidades ()
                             (*j)->setVelocidadeY (0.f);
                             (*j)->setPosicao (Vector2f(posEntidade2.left, posEntidade2.top));
                             (*i)->setPodePular (true);
+                            (*j)->setPodePular (true);
                         }
                     }
                     else if (proxPosEntidade1.top + proxPosEntidade1.height > posEntidade2.top + posEntidade2.height && proxPosEntidade1.top > posEntidade2.top)
@@ -93,6 +112,7 @@ void GerenciadorDeColisoes:: testaColisoesEntidades ()
                             (*j)->setVelocidadeY (0.f);
                             (*j)->setPosicao (Vector2f(posEntidade2.left, posEntidade2.top));
                             (*i)->setPodePular (true);
+                            (*j)->setPodePular (true);
                         }
                     }
                     else if ((proxPosEntidade1.top > posEntidade2.top) && (proxPosEntidade1.top + proxPosEntidade1.height > posEntidade2.top + posEntidade2.height))

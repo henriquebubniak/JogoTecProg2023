@@ -16,7 +16,7 @@ public:
     virtual ~Personagem();
 
     //Fun��es
-    void recebeDano(int d);
+    void receberDano(int d);
 
     //Sets e gets
     void setPodePular (bool p);
@@ -25,5 +25,6 @@ public:
     bool getVida() {return vivo;}
     void setVivo(bool v) {vivo = v;}
     void setHp(int h) {hp = h;}
+    int getHp() {return hp;}
 };
 

@@ -8,15 +8,15 @@ Personagem::Personagem(Vector2f p, const char* cT, Fase* f, GerenciadorGrafico* 
     velPadrao(v),
     podePular(false),
     vivo(false)
-{}
+{
+    setID(1);
+}
 Personagem::~Personagem(){}
 
 //Funcionalidades
-void Personagem::recebeDano(int d)
+void Personagem::receberDano(int d)
 {
     hp -= d;
-    if (hp <= 0)
-        morrer();
     velocidade = Vector2f(0.f, 0.f);
 }
 
