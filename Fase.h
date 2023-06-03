@@ -1,6 +1,7 @@
 #pragma once
 
 #include <list>
+#include "ListaEntidades.h"
 #include "Entidade.h"
 #include "Projetil.h"
 #include "Obstaculo.h"
@@ -13,7 +14,7 @@ using namespace std;
 class Fase: public Ente
 {
 protected:
-    list<Entidade*> listaEntidade;
+    ListaEntidades listaEntidades;
     GerenciadorDeColisoes gdc;
     TelaMorte* telaMorte;
     float tempo;
@@ -25,7 +26,6 @@ public:
 
     //Funcionalidades
     void atualiza();
-    void executarEntidades();
     void executar();
     void carregaTelaMorte();
     void desenhar();
@@ -36,7 +36,7 @@ public:
 
     //Gets
     float get_tempo();
-    list<Entidade*>* get_lista_ent();
+    ListaEntidades* get_lista_ent();
     GerenciadorGrafico* get_gerenciador_grafico();
     virtual Ente* getEnderecoJog2() = 0;
     void setDoisJogadores(bool b);

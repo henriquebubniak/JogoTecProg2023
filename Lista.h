@@ -1,4 +1,6 @@
 #pragma once
+#include <iostream>
+
 template <typename TL>
 class Lista
 {
@@ -33,7 +35,7 @@ private:
             if(pP)
                 pAnterior = pP;
             else
-                cout << "pP nulo em Elemento::setProximo" << endl;
+                std::cout << "pP nulo em Elemento::setProximo" << std::endl;
         }
         Elemento<TE>* getProximo()
         {
@@ -130,7 +132,7 @@ public:
             }        
         }
         else
-            cout << "Ponteiro nulo em Lista::incluir()" << endl;
+            std::cout << "Ponteiro nulo em Lista::incluir()" << std::endl;
     }
     void limpar()
     {

@@ -3,34 +3,21 @@
 // #include "Ente.h"
 #include "Entidade.h"
 
-class ListaEntidade
+class ListaEntidades
 {
 private:
-    // Lista<Ente> lista;
     Lista<Entidade*> lista;
-public:
-    // ListaEnte():
-    ListaEntidade():
+public:   
+    ListaEntidades():
         lista()
     {}
-    ~ListaEntidade()
+    ~ListaEntidades()
     {}
-    /* void imprimirEntes()
-    {
-        Lista<Ente>::Iterador iEnte;
-        iEnte = lista.getpPrimeiro();
-        while (iEnte.getProximo() != NULL)
-        {
-            iEnte.getAtual()->seImprimir();
-            iEnte.operator++();
-        }      
-        iEnte.getAtual()->seImprimir();
-    }
-    */
-    void executarEntidades() //chama executar de cada entidade na lista
+    // chama executar de cada entidade na lista
+    void executarEntidades()
     {
         Lista<Entidade*>::Iterador iEntidade;
-	iEntidade = lista.getPrimeiro();
+	iEntidade = lista.getpPrimeiro();
 	while (iEntidade.getProximo() != NULL)
 	{
 	    // if (doisJogadores) // esta na classe Fase -> construtora
@@ -39,7 +26,18 @@ public:
 	}
 	iEntidade.getAtual()->executar(); 
     }
-    void incluir(Ente* pE)
+    void desenhar()
+    {
+	Lista<Entidade*>::Iterador iEntidade;
+	iEntidade = lista.getpPrimeiro();
+	while (iEntidade.getProximo() != NULL)
+	{
+		iEntidade.getAtual()->desenhar();
+		iEntidade.operator++();
+	}
+	iEntidade.getAtual()->desenhar();
+    }
+    void incluir(Entidade** pE)
     {
         lista.incluir(pE);
     }
@@ -47,7 +45,7 @@ public:
     {
         lista.limpar();
     }
-    void remover(Ente* pE)
+    void remover(Entidade** pE)
     {
         lista.remover(pE);
     }
