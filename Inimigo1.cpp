@@ -4,9 +4,9 @@
 
 Inimigo1::Inimigo1(Vector2f p, Fase* f, GerenciadorGrafico* pgg, Jogador1* pJ1, Jogador2* pJ2):
 Personagem (p, f, pgg, 10, 0.0, "./imagens/inimigo1.png"),
-tirosTambor(10),
 pJog1(pJ1),
 pJog2(pJ2),
+tirosTambor(10),
 auxTempo(0.0)
 {}
 

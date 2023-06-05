@@ -1,9 +1,9 @@
 #pragma once
 
-#include "Personagem.h"
+#include "Jogador.h"
 #include "Jogador2.h"
 
-class Jogador1: public Personagem
+class Jogador1: public Jogador
 {
 protected:
     float auxTempo;

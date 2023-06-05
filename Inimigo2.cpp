@@ -7,7 +7,9 @@ Personagem (p, f, pgg, 10, 0.01, "./imagens/inimigo2.png"),
 pJog1(pJ1),
 pJog2(pJ2),
 auxTempo(0.0)
-{}
+{
+    setID(4);
+}
 
 void Inimigo2::mover()
 {

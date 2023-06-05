@@ -20,12 +20,10 @@ public:
 
     //testes
     void testaColisoes ();
-    //void testaColisoesProjeteis();
     void testaColisoesEntidades ();
-    //void testaColisoesObstaculos ();
+    void testaColisaoPersonagemProjetil (list<Entidade*>::iterator i, list<Entidade*>::iterator j, list<Entidade*>* pListaMorte);
 
     //sets
     void setListaEntidades (list<Entidade*>* ent);
-    //void setListaProjeteis(list<Projetil*>* proj);
 };
 

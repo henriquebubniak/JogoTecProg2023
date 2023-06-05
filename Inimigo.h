@@ -7,16 +7,14 @@
 class Inimigo: public Personagem
 {
 protected:
-    float auxTempo;
-    int tirosTambor;
     Jogador1* pJog1;
     Jogador2* pJog2;
 public:
     //Construtora e destrutora
-    Inimigo(Vector2f p = Vector2f(0.f, 0.f), Fase* f = NULL, GerenciadorGrafico* pgg = NULL, Jogador1* pJ1 = NULL, Jogador2* j = NULL);
+    Inimigo(Vector2f p = Vector2f(0.f, 0.f), Fase* f = NULL, GerenciadorGrafico* pgg = NULL, int hp = 10, float v = 0.1, const char* cT = "./imagens/padrao.png", Jogador1* pJ1 = NULL, Jogador2* j = NULL);
     ~Inimigo() {}
     //Funcionalidades
-    void atacar();
-    void mover();
-    void morrer();
+    virtual void atacar(){}
+    virtual void mover(){}
+    virtual void morrer(){}
 };

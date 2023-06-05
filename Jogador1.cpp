@@ -3,10 +3,10 @@
 #include <cmath>
 
 Jogador1::Jogador1(Vector2f p, Fase* f, GerenciadorGrafico* pgg, Jogador2* j):
-Personagem (p, f, pgg, 10, 0.1, "./imagens/jogador1.png"),
-tirosTambor(10),
-jog2(j),
-auxTempo(0.0)
+    Jogador (p, f, pgg, 10, 0.1, "./imagens/jogador1.png"),
+    tirosTambor(5),
+    jog2(j),
+    auxTempo(0.0)
 {}
 
 void Jogador1::mover()
@@ -88,11 +88,6 @@ void Jogador1::atacar()
 
     else if ((pfase->get_tempo() - auxTempo) > 300.0 && !Keyboard::isKeyPressed(Keyboard::F))
     {
-        if (tirosTambor <= 0 && (pfase->get_tempo() - auxTempo) > 2000.0)
-        {
-            podeAtirar = true;
-            tirosTambor = 10;
-        }
         if (tirosTambor > 0)
             podeAtirar = true;
     }
