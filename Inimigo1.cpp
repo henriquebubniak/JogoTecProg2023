@@ -1,28 +1,28 @@
-#include "Inimigo.h"
+#include "Inimigo1.h"
 #include "Fase.h"
 #include <cmath>
 
-Inimigo::Inimigo(Vector2f p, Fase* f, GerenciadorGrafico* pgg, Jogador1* pJ1, Jogador2* pJ2):
-Personagem (p, f, pgg, 10, 0, "./imagens/padrao.png"),
+Inimigo1::Inimigo1(Vector2f p, Fase* f, GerenciadorGrafico* pgg, Jogador1* pJ1, Jogador2* pJ2):
+Personagem (p, f, pgg, 10, 0.0, "./imagens/inimigo1.png"),
 tirosTambor(10),
 pJog1(pJ1),
 pJog2(pJ2),
 auxTempo(0.0)
 {}
 
-void Inimigo::mover()
+void Inimigo1::mover()
 {
     caixa.move(velocidade);
     velocidade.y += pfase->getG() * (0.016);
     podePular = false;
 }
-void Inimigo::morrer()
+void Inimigo1::morrer()
 {
     hp = 0;
     vivo = false;
     pfase->rmEntidade(static_cast <Entidade*> (this));
 }
-void Inimigo::atacar()
+void Inimigo1::atacar()
 {
     Vector2f posicaoJog1 = pJog1->getPosicao();
     Vector2f posicaoIni = this->getPosicao();

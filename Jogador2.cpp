@@ -3,8 +3,8 @@
 #include "Fase.h"
 #include <cmath>
 
-Jogador2::Jogador2(Vector2f p, const char* cT, Fase* f, GerenciadorGrafico* pgg , int h, float v, Jogador1* j):
-Personagem (p, cT, f, pgg, h, v),
+Jogador2::Jogador2(Vector2f p, Fase* f, GerenciadorGrafico* pgg, Jogador1* j):
+Personagem (p, f, pgg, 10, 0.1, "./imagens/jogador2.png"),
 tirosTambor(10),
 jog1(j)
 {}

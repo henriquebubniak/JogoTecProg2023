@@ -9,9 +9,10 @@ plataforma3(Vector2f(1700.f,1450.f), "./imagens/plataforma1.png", static_cast <F
 plataforma4(Vector2f(3300.f,1450.f), "./imagens/plataforma1.png", static_cast <Fase*> (this), pgg),
 plataforma5(Vector2f(4500.f,1450.f), "./imagens/plataforma1.png", static_cast <Fase*> (this), pgg),
 plataforma6(Vector2f(3900.f,1000.f), "./imagens/plataforma1.png", static_cast <Fase*> (this), pgg),
-jogador1(Vector2f(0.f,0.f), "./imagens/jogador1.png", static_cast <Fase*> (this), pgg, 10, 0.1, &jogador2),
-jogador2(Vector2f(300.f,0.f), "./imagens/jogador2.png", static_cast <Fase*> (this), pgg, 10, 0.1, &jogador1),
-inimigo(Vector2f(1600.f, 0.f), "./imagens/inimigo.png", static_cast <Fase*> (this), pgg, 10, 0.1, &jogador1, &jogador2)
+jogador1(Vector2f(0.f,0.f), static_cast <Fase*> (this), pgg, &jogador2),
+jogador2(Vector2f(300.f,0.f), static_cast <Fase*> (this), pgg, &jogador1),
+inimigo1(Vector2f(1600.f, 0.f), static_cast <Fase*> (this), pgg, &jogador1, &jogador2),
+inimigo2(Vector2f(4000.f, 0.f), static_cast <Fase*> (this), pgg, &jogador1, &jogador2)
 {
     setImagem("./imagens/fundoFase1.png");
     adEntidade(static_cast <Entidade*> (&plataforma1));
@@ -22,7 +23,8 @@ inimigo(Vector2f(1600.f, 0.f), "./imagens/inimigo.png", static_cast <Fase*> (thi
     adEntidade(static_cast <Entidade*> (&plataforma6));
     adEntidade(static_cast <Entidade*> (&jogador1));
     adEntidade(static_cast <Entidade*> (&jogador2));
-    adEntidade(static_cast <Entidade*> (&inimigo));
+    adEntidade(static_cast <Entidade*> (&inimigo1));
+    adEntidade(static_cast <Entidade*> (&inimigo2));
 }
 
 float Fase1::getG() {return gravidade;}

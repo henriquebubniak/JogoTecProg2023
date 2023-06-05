@@ -2,7 +2,7 @@
 #include "Fase.h"
 
 //Construtora e destrutora
-Personagem::Personagem(Vector2f p, const char* cT, Fase* f, GerenciadorGrafico* pgg, int h, float v):
+Personagem::Personagem(Vector2f p, Fase* f, GerenciadorGrafico* pgg, int h, float v, const char* cT):
     Entidade(p, cT, f, pgg),
     hp(h),
     velPadrao(v),

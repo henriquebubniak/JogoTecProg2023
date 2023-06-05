@@ -11,7 +11,7 @@ protected:
     Jogador2* jog2;
 public:
     //Construtora e destrutora
-    Jogador1(Vector2f p = Vector2f(0.f, 0.f), const char* cT = "./imagens/padrao.png", Fase* f = NULL, GerenciadorGrafico* pgg = NULL, int hp = 10, float v = 1, Jogador2* j = NULL);
+    Jogador1(Vector2f p = Vector2f(0.f, 0.f), Fase* f = NULL, GerenciadorGrafico* pgg = NULL, Jogador2* j = NULL);
     ~Jogador1() {}
     //Funcionalidades
     void atacar();
