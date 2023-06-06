@@ -8,7 +8,9 @@ pJog1(pJ1),
 pJog2(pJ2),
 tirosTambor(10),
 auxTempo(0.0)
-{}
+{
+    setID(4);
+}
 
 void Inimigo1::mover()
 {
@@ -59,7 +61,7 @@ void Inimigo1::atacar()
                 vx = -v;
             vy = 0;
         }
-        Projetil* proj = new Projetil(7, Vector2f(getPosicao().x, getPosicao().y - 50), "./imagens/projetil.png", pfase, pGerenciadorGrafico, vx, vy);
+        Projetil* proj = new Projetil(7, Vector2f(getPosicao().x, getPosicao().y - 50), pfase, pGerenciadorGrafico, vx, vy);
         pfase->adEntidade(static_cast<Entidade*> (proj));
         podeAtirar = false;
         auxTempo = pfase->get_tempo();
@@ -71,7 +73,6 @@ void Inimigo1::atacar()
         if (tirosTambor <= 0 && (pfase->get_tempo() - auxTempo) > 2000.0)
         {
             podeAtirar = true;
-            tirosTambor = 10;
         }
         if (tirosTambor > 0)
             podeAtirar = true;

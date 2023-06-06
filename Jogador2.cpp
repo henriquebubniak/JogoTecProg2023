@@ -76,7 +76,7 @@ void Jogador2::atacar()
             vy = 0;
         }
         cout << "velocidade" << vx << ", " << vy << endl;
-        Projetil* proj = new Projetil(7, Vector2f(getPosicao().x, getPosicao().y - 50), "./imagens/projetil.png", pfase, pGerenciadorGrafico, vx, vy);
+        Projetil* proj = new Projetil(7, Vector2f(getPosicao().x, getPosicao().y - 50), pfase, pGerenciadorGrafico, vx, vy);
         pfase->adEntidade(static_cast<Entidade*> (proj));
         podeAtirar = false;
         auxTempo = pfase->get_tempo();
@@ -87,5 +87,6 @@ void Jogador2::atacar()
     {
         if (tirosTambor > 0)
             podeAtirar = true;
+        tirosTambor = 10;
     }
 }

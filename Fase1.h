@@ -18,6 +18,7 @@ private:
     Plataforma plataforma4;
     Plataforma plataforma5;
     Plataforma plataforma6;
+    Plataforma plataforma7;
     Jogador1 jogador1;
     Jogador2 jogador2;
     Inimigo1 inimigo1;

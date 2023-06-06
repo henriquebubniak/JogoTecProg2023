@@ -2,9 +2,10 @@
 #include "Jogo.h"
 
 //Construtora e destrutora
-Projetil::Projetil(int f, Vector2f pos,  const char* cT, Fase* pf, GerenciadorGrafico* pgg, float vel_x, float vel_y):
+Projetil::Projetil(int f, Vector2f pos, Fase* pf, GerenciadorGrafico* pgg, float vel_x, float vel_y, Jogador* at):
 forca(f),
-Entidade(pos, cT, pf, pgg, Vector2f(vel_x, vel_y))
+atirador(at),
+Entidade(pos, "imagens/projetil.png", pf, pgg, Vector2f(vel_x, vel_y))
 {
     setID(2);
 }

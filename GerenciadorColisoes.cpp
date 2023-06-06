@@ -31,6 +31,7 @@ void GerenciadorDeColisoes:: testaColisoesEntidades ()
             if (proxPosEntidade1.intersects(posEntidade2))
             {
                 testaColisaoPersonagemProjetil(i, j, &listaMorte);
+                testaColisaoJogadorInimigo(i, j, &listaMorte);
                 if (proxPosEntidade1.left < posEntidade2.left)
                 {
                     if (proxPosEntidade1.top < posEntidade2.top && proxPosEntidade1.top + proxPosEntidade1.height < posEntidade2.top + posEntidade2.height)
@@ -49,7 +50,6 @@ void GerenciadorDeColisoes:: testaColisoesEntidades ()
                             (*j)->setVelocidadeY (0.f);
                             (*j)->setPosicao (Vector2f(posEntidade2.left, posEntidade2.top));
                             (*i)->setPodePular (true);
-                            (*j)->setPodePular (true);
                         }
                     }
                     else if (proxPosEntidade1.top + proxPosEntidade1.height > posEntidade2.top + posEntidade2.height && proxPosEntidade1.top > posEntidade2.top)
@@ -156,10 +156,10 @@ void GerenciadorDeColisoes:: setListaEntidades(list<Entidade*>* ent) {entidades 
 
 void GerenciadorDeColisoes::testaColisaoPersonagemProjetil(list<Entidade*>::iterator i, list<Entidade*>::iterator j, list<Entidade*>* pListaMorte)
 {
-    if ((((*i)->getID() == 1 || (*i)->getID() == 4) && (*j)->getID() == 2) ||
-        ((*i)->getID() == 2 && (*j)->getID() == 1 || (*j)->getID() == 4))//Colisao entre Projetil e Personagem
+    if ((((*i)->getID() == 3 || (*i)->getID() == 4) && (*j)->getID() == 2) ||
+        ((*i)->getID() == 2 && ((*j)->getID() == 3 || (*j)->getID() == 4)))//Colisao entre Projetil e Personagem (jogador ou inimigo)
     {
-        if ((*i)->getID() == 1 || (*i)->getID() == 4)
+        if ((*i)->getID() == 3 || (*i)->getID() == 4)
         {
             (*i)->receberDano((*j)->getForca());
             pListaMorte->push_back(*j);
@@ -173,5 +173,20 @@ void GerenciadorDeColisoes::testaColisaoPersonagemProjetil(list<Entidade*>::iter
             if ((*j)->getHp() <= 0)
                 pListaMorte->push_back(*j);
         }                    
+    }
+}
+void GerenciadorDeColisoes::testaColisaoJogadorInimigo(list<Entidade*>::iterator i, list<Entidade*>::iterator j, list<Entidade*>* pListaMorte)
+{
+    if (((*i)->getID() == 3 && (*j)->getID() == 4)||
+        ((*j)->getID() == 3 && (*i)->getID() == 4))
+    {
+        if ((*i)->getID() == 3)
+        {
+            pListaMorte->push_back(*i);
+        }
+        else
+        {
+            pListaMorte->push_back(*j);
+        }
     }
 }

@@ -8,7 +8,9 @@ ConjuntoInimigos2::ConjuntoInimigos2(Fase* pF, GerenciadorGrafico* pgg, Jogador1
     posicoesPossiveis()
 {
     srand(time(NULL));
-    nInimigos = rand()%7 + 4;
+    rand();
+    nInimigos = (rand()%7) + 4;
+    cout << nInimigos << " INIMIGOS2" << endl;
     posicoesPossiveis.push_back(Vector2f(2000.f, 0.f));
     posicoesPossiveis.push_back(Vector2f(2300.f, 0.f));
     posicoesPossiveis.push_back(Vector2f(2600.f, 0.f));

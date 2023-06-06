@@ -22,6 +22,7 @@ public:
     void testaColisoes ();
     void testaColisoesEntidades ();
     void testaColisaoPersonagemProjetil (list<Entidade*>::iterator i, list<Entidade*>::iterator j, list<Entidade*>* pListaMorte);
+    void testaColisaoJogadorInimigo (list<Entidade*>::iterator i, list<Entidade*>::iterator j, list<Entidade*>* pListaMorte);
 
     //sets
     void setListaEntidades (list<Entidade*>* ent);

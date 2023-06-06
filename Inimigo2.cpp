@@ -3,7 +3,7 @@
 #include <cmath>
 
 Inimigo2::Inimigo2(Vector2f p, Fase* f, GerenciadorGrafico* pgg, Jogador1* pJ1, Jogador2* pJ2):
-Personagem (p, f, pgg, 10, 0.01, "./imagens/inimigo2.png"),
+Personagem (p, f, pgg, 100, 0.01, "./imagens/inimigo2.png"),
 pJog1(pJ1),
 pJog2(pJ2),
 auxTempo(0.0)
