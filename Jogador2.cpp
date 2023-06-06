@@ -3,9 +3,9 @@
 #include "Fase.h"
 #include <cmath>
 
-Jogador2::Jogador2(Vector2f p, const char* cT, Fase* f, GerenciadorGrafico* pgg , int h, float v, Jogador1* j):
-Personagem (p, cT, f, pgg, h, v),
-tirosTambor(10),
+Jogador2::Jogador2(Vector2f p, Fase* f, GerenciadorGrafico* pgg, Jogador1* j):
+Personagem (p, f, pgg, 10, 0.1, "./imagens/jogador2.png"),
+tirosTambor(5),
 jog1(j)
 {}
 
@@ -46,39 +46,37 @@ void Jogador2::atacar()
 {
     if (Keyboard::isKeyPressed(Keyboard::K) && podeAtirar)
     {
+        float v = 10.0;
         float vx, vy;
         Vector2f posicaoMouse = pGerenciadorGrafico->converteCoord(Mouse::getPosition());
         posicaoMouse.y-=2500;
         float tg = (posicaoMouse.y - getPosicao().y - 50) / (posicaoMouse.x - getPosicao().x);
-        cout << "mouse " << posicaoMouse.x << ", " << posicaoMouse.y - 50 << endl;
-        cout << "personagem " << getPosicao().x << ", " << getPosicao().y << endl;
-        cout << "tangente " << tg << endl;
         if (tg < -0.08)
         {
             if(posicaoMouse.y < getPosicao().y)
-                vx = 14/sqrt(tg*tg + 1);
+                vx = v/sqrt(tg*tg + 1);
             else 
-                vx = -14/sqrt(tg*tg + 1);
+                vx = -v/sqrt(tg*tg + 1);
             vy = tg*vx;
         }
         else if (tg > 0.08)
         {
             if(posicaoMouse.y > getPosicao().y)
-                vx = 14/sqrt(tg*tg + 1);
+                vx = v/sqrt(tg*tg + 1);
             else 
-                vx = -14/sqrt(tg*tg + 1);
+                vx = -v/sqrt(tg*tg + 1);
             vy = tg*vx;
         }
         else
         {
             if (posicaoMouse.x > getPosicao().x)
-                vx = 14;
+                vx = v;
             else
-                vx = -14;
+                vx = -v;
             vy = 0;
         }
         cout << "velocidade" << vx << ", " << vy << endl;
-        Projetil* proj = new Projetil(7, Vector2f(getPosicao().x, getPosicao().y - 50), "./imagens/projetil.png", pfase, pGerenciadorGrafico, vx, vy);
+        Projetil* proj = new Projetil(7, Vector2f(getPosicao().x, getPosicao().y - 50), pfase, pGerenciadorGrafico, vx, vy);
         pfase->adEntidade(static_cast<Entidade*> (proj));
         podeAtirar = false;
         auxTempo = pfase->get_tempo();
@@ -87,12 +85,8 @@ void Jogador2::atacar()
 
     else if ((pfase->get_tempo() - auxTempo) > 300.0 && !Keyboard::isKeyPressed(Keyboard::F))
     {
-        if (tirosTambor <= 0 && (pfase->get_tempo() - auxTempo) > 2000.0)
-        {
-            podeAtirar = true;
-            tirosTambor = 10;
-        }
         if (tirosTambor > 0)
             podeAtirar = true;
+        tirosTambor = 10;
     }
 }

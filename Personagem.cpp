@@ -2,21 +2,21 @@
 #include "Fase.h"
 
 //Construtora e destrutora
-Personagem::Personagem(Vector2f p, const char* cT, Fase* f, GerenciadorGrafico* pgg, int h, float v):
+Personagem::Personagem(Vector2f p, Fase* f, GerenciadorGrafico* pgg, int h, float v, const char* cT):
     Entidade(p, cT, f, pgg),
     hp(h),
     velPadrao(v),
     podePular(false),
     vivo(false)
-{}
+{
+    setID(1);
+}
 Personagem::~Personagem(){}
 
 //Funcionalidades
-void Personagem::recebeDano(int d)
+void Personagem::receberDano(int d)
 {
     hp -= d;
-    if (hp <= 0)
-        morrer();
     velocidade = Vector2f(0.f, 0.f);
 }
 

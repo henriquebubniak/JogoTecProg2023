@@ -2,11 +2,11 @@
 #include "Fase.h"
 #include <cmath>
 
-Jogador1::Jogador1(Vector2f p, const char* cT, Fase* f, GerenciadorGrafico* pgg , int h, float v, Jogador2* j):
-Personagem (p, cT, f, pgg, h, v),
-tirosTambor(10),
-jog2(j),
-auxTempo(0.0)
+Jogador1::Jogador1(Vector2f p, Fase* f, GerenciadorGrafico* pgg, Jogador2* j):
+    Jogador (p, f, pgg, 10, 0.1, "./imagens/jogador1.png"),
+    tirosTambor(5),
+    jog2(j),
+    auxTempo(0.0)
 {}
 
 void Jogador1::mover()
@@ -46,6 +46,7 @@ void Jogador1::atacar()
 {
     if (Keyboard::isKeyPressed(Keyboard::F) && podeAtirar)
     {
+        float v = 7;
         float vx, vy;
         Vector2f posicaoMouse = pGerenciadorGrafico->converteCoord(Mouse::getPosition());
         posicaoMouse.y-=2500;
@@ -56,29 +57,29 @@ void Jogador1::atacar()
         if (tg < -0.08)
         {
             if(posicaoMouse.y < getPosicao().y)
-                vx = 14/sqrt(tg*tg + 1);
+                vx = v/sqrt(tg*tg + 1);
             else 
-                vx = -14/sqrt(tg*tg + 1);
+                vx = -v/sqrt(tg*tg + 1);
             vy = tg*vx;
         }
         else if (tg > 0.08)
         {
             if(posicaoMouse.y > getPosicao().y)
-                vx = 14/sqrt(tg*tg + 1);
+                vx = v/sqrt(tg*tg + 1);
             else 
-                vx = -14/sqrt(tg*tg + 1);
+                vx = -v/sqrt(tg*tg + 1);
             vy = tg*vx;
         }
         else
         {
             if (posicaoMouse.x > getPosicao().x)
-                vx = 14;
+                vx = v;
             else
-                vx = -14;
+                vx = -v;
             vy = 0;
         }
         cout << "velocidade" << vx << ", " << vy << endl;
-        Projetil* proj = new Projetil(7, Vector2f(getPosicao().x, getPosicao().y - 50), "./imagens/projetil.png", pfase, pGerenciadorGrafico, vx, vy);
+        Projetil* proj = new Projetil(7, Vector2f(getPosicao().x, getPosicao().y - 50), pfase, pGerenciadorGrafico, vx, vy);
         pfase->adEntidade(static_cast<Entidade*> (proj));
         podeAtirar = false;
         auxTempo = pfase->get_tempo();
@@ -87,12 +88,8 @@ void Jogador1::atacar()
 
     else if ((pfase->get_tempo() - auxTempo) > 300.0 && !Keyboard::isKeyPressed(Keyboard::F))
     {
-        if (tirosTambor <= 0 && (pfase->get_tempo() - auxTempo) > 2000.0)
-        {
-            podeAtirar = true;
-            tirosTambor = 10;
-        }
         if (tirosTambor > 0)
             podeAtirar = true;
+        tirosTambor = 10;
     }
 }

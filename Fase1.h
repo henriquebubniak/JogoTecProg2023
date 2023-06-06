@@ -4,6 +4,9 @@
 #include "Plataforma.h"
 #include "Jogador1.h"
 #include "Jogador2.h"
+#include "Inimigo1.h"
+#include "ConjuntoInimigos2.h"
+#include "Inimigo3.h"
 #include <algorithm>
 
 class Fase1: public Fase
@@ -16,8 +19,12 @@ private:
     Plataforma plataforma4;
     Plataforma plataforma5;
     Plataforma plataforma6;
+    Plataforma plataforma7;
     Jogador1 jogador1;
     Jogador2 jogador2;
+    Inimigo1 inimigo1;
+    ConjuntoInimigos2 conjInis2;
+    Inimigo3 inimigo3;
 public:
     //Construtora e destrutora
     Fase1(GerenciadorGrafico* pgg = NULL, TelaMorte* tm = NULL);
