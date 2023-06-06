@@ -6,6 +6,7 @@
 #include "Jogador2.h"
 #include "Inimigo1.h"
 #include "ConjuntoInimigos2.h"
+#include "Inimigo3.h"
 #include <algorithm>
 
 class Fase1: public Fase
@@ -23,6 +24,7 @@ private:
     Jogador2 jogador2;
     Inimigo1 inimigo1;
     ConjuntoInimigos2 conjInis2;
+    Inimigo3 inimigo3;
 public:
     //Construtora e destrutora
     Fase1(GerenciadorGrafico* pgg = NULL, TelaMorte* tm = NULL);
