@@ -29,11 +29,11 @@ public:
     //Sets e gets
     void setFase(Fase* f);
     void setID(int i);
-    int getID();
-    virtual int getForca() {return 0;}
-    virtual Vector2f getVelocidade();
+    int getID() const;
+    virtual int getForca() const {return 0;}
+    virtual Vector2f getVelocidade() const;
     virtual void setVelocidadeX(float v){}
     virtual void setVelocidadeY(float v){}
     virtual void setPodePular(bool p){}
-    virtual int getHp() {return 0;}
+    virtual int getHp() const {return 0;}
 };

@@ -28,7 +28,7 @@ public:
     void limpaJanela();
 
     //Sets e gets
-    bool get_JanelaAberta();
+    bool get_JanelaAberta() const;
     RenderWindow* getJanela();
     Vector2f converteCoord(Vector2i p);
     void setPosicaoView(Vector2f p = Vector2f(0.f,0.f));

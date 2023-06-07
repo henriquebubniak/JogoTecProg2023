@@ -20,6 +20,6 @@ public:
     void mover();
     bool colide(Entidade* ent);
     void dano(int d) {}
-    int getForca ();
+    int getForca() const;
 };
 
