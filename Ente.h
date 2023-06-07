@@ -15,10 +15,10 @@ protected:
 public:
     Ente(const char* cT = "./imagens/padrao.png", GerenciadorGrafico* pgg = NULL, Vector2f p = Vector2f(0.f,0.f));
     ~Ente();
-    Sprite getCaixa();
-    Vector2f getPosicao();
-    FloatRect getGlobalBounds();
-    bool getAtivo();
+    Sprite getCaixa() const;
+    Vector2f getPosicao() const;
+    FloatRect getGlobalBounds() const;
+    bool getAtivo() const;
     void setPosicao (Vector2f p);
     void setImagem(const char* cT = "./imagens/padrao.png");
     void setAtivo(bool b);
