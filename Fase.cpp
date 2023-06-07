@@ -11,11 +11,7 @@ doisJogadores(false)
 {}
 
 //Funcionalidades
-void Fase::atualiza()
-{
-    
-}
-void Fase::executarEntidades()
+void Fase::executar()
 {
     for (list<Entidade*>::iterator i = listaEntidade.begin(); i != listaEntidade.end(); i++)
     {
@@ -25,16 +21,11 @@ void Fase::executarEntidades()
             if(*i != static_cast<Ente*>(getEnderecoJog2()))
                 (*i)->executar();
     }
-}
-
-void Fase::executar()
-{
+    
     //lista entidades, this
-    executarEntidades();
     gdc.testaColisoes();
     desenhar();
     tempo += 3;
-
 }
 
 void Fase::desenhar()

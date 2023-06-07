@@ -24,8 +24,6 @@ public:
     ~Fase(){}
 
     //Funcionalidades
-    void atualiza();
-    void executarEntidades();
     void executar();
     void carregaTelaMorte();
     void desenhar();
