@@ -3,10 +3,8 @@
 #include <cmath>
 
 Inimigo2::Inimigo2(Vector2f p, Fase* f, GerenciadorGrafico* pgg, Jogador1* pJ1, Jogador2* pJ2):
-Personagem (p, f, pgg, 100, 0.01, "./imagens/inimigo2.png"),
-pJog1(pJ1),
-pJog2(pJ2),
-auxTempo(0.0)
+Inimigo (p, f, pgg, 100, 0.01, "./imagens/inimigo2.png", pJ1, pJ2),
+alcance(1250.0)
 {
     setID(4);
 }
@@ -23,7 +21,7 @@ void Inimigo2::mover()
     else
         esquerda = false;
     
-    if (dist <= 1000)
+    if (dist <= alcance)
     {
         if (esquerda)  
             velocidade.x -= velPadrao;

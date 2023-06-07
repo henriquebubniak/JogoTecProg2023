@@ -3,11 +3,9 @@
 #include <cmath>
 
 Inimigo3::Inimigo3(Vector2f p, Fase* f, GerenciadorGrafico* pgg, Jogador1* pJ1, Jogador2* pJ2):
-Personagem (p, f, pgg, 150, 0.01, "./imagens/inimigo3.png"),
-pJog1(pJ1),
-pJog2(pJ2),
+Inimigo (p, f, pgg, 150, 0.01, "./imagens/inimigo3.png", pJ1, pJ2),
 tirosTambor(10),
-auxTempo(0.0)
+forcaProj(7.0)
 {
     setID(4);
 }
@@ -89,16 +87,16 @@ void Inimigo3::atacar()
                 vx = -v;
             vy = 0;
         }
-        Projetil* proj = new Projetil(7, Vector2f(getPosicao().x, getPosicao().y - 50), pfase, pGerenciadorGrafico, vx, vy);
+        Projetil* proj = new Projetil(forcaProj, Vector2f(getPosicao().x, getPosicao().y - 50), pfase, pGerenciadorGrafico, vx, vy);
         pfase->adEntidade(static_cast<Entidade*> (proj));
         podeAtirar = false;
         auxTempo = pfase->get_tempo();
         tirosTambor--;
     }
 
-    else if ((pfase->get_tempo() - auxTempo) > 3000.0)
+    else if ((pfase->get_tempo() - auxTempo) > 2000.0)
     {
-        if (tirosTambor <= 0 && (pfase->get_tempo() - auxTempo) > 2000.0)
+        if (tirosTambor <= 0 && (pfase->get_tempo() - auxTempo) > 5000.0)
         {
             podeAtirar = true;
         }
