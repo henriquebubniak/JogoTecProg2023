@@ -19,13 +19,13 @@ ativo(false)
 Ente::~Ente(){}
 
 //Gets e sets
-Sprite Ente::getCaixa () {return caixa;}
+Sprite Ente::getCaixa() const {return caixa;}
 
-Vector2f Ente::getPosicao () {return caixa.getPosition();}
+Vector2f Ente::getPosicao() const {return caixa.getPosition();}
 
-FloatRect Ente::getGlobalBounds () {return caixa.getGlobalBounds();}
+FloatRect Ente::getGlobalBounds() const {return caixa.getGlobalBounds();}
 
-bool Ente::getAtivo() {return ativo;}
+bool Ente::getAtivo() const {return ativo;}
 
 void Ente::setPosicao(Vector2f p) {caixa.setPosition(p);}
 
