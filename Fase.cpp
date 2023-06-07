@@ -1,8 +1,8 @@
 #include "Fase.h"
 
 //Construtora e destrutora
-Fase::Fase(GerenciadorGrafico* pgg, TelaMorte* tm):
-Ente("./imagens/FasePadrao.png", pgg),
+Fase::Fase(GerenciadorGrafico* pgg, TelaMorte* tm, const char* cT):
+Ente(cT, pgg, Vector2f(-1000.0, -1000.0)),
 listaEntidade(),
 gdc(&listaEntidade, pgg),
 telaMorte(tm),
@@ -30,6 +30,7 @@ void Fase::executar()
 
 void Fase::desenhar()
 {
+    pGerenciadorGrafico->desenharEnte(static_cast<Ente*>(this));
     for (list<Entidade*>::iterator it = listaEntidade.begin(); it != listaEntidade.end(); it++)
     {
         if(doisJogadores)

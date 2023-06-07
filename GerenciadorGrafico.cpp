@@ -6,7 +6,7 @@
 //Construra e destrutora
 GerenciadorGrafico::GerenciadorGrafico():
     janela(VideoMode(800, 600, 32), "GREG", Style::Fullscreen),
-    view(Vector2f(1280.f, 800.f), Vector2f(4000.f, 2500.f))
+    view(Vector2f(853.f, 533.f), Vector2f(3000.f, 1875.f))
 {
     janela.setPosition(Vector2i(0.f, 0.f));
     janela.setFramerateLimit(600);

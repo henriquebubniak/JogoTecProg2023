@@ -29,8 +29,8 @@ void Jogador2::mover()
         velocidade.x = 20*velPadrao;
     if (velocidade.x < -20*velPadrao)
         velocidade.x = -20*velPadrao;
-    caixa.move(velocidade);
     velocidade.y += pfase->getG() * (0.016);
+    caixa.move(velocidade);
     podePular = false;
     pGerenciadorGrafico->setPosicaoView(Vector2f(getPosicao().x, getPosicao().y - 700));
 }
@@ -49,7 +49,7 @@ void Jogador2::atacar()
         float v = 10.0;
         float vx, vy;
         Vector2f posicaoMouse = pGerenciadorGrafico->converteCoord(Mouse::getPosition());
-        posicaoMouse.y-=2500;
+        posicaoMouse.y-=1875;
         float tg = (posicaoMouse.y - getPosicao().y - 50) / (posicaoMouse.x - getPosicao().x);
         if (tg < -0.08)
         {
