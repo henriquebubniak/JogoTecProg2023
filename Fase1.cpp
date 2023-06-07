@@ -1,7 +1,7 @@
 #include "Fase1.h"
 
 Fase1::Fase1(GerenciadorGrafico* pgg, TelaMorte* tm):
-Fase(pgg, tm),
+Fase(pgg, tm, "./imagens/fundoFase1.jpg"),
 gravidade(1),
 plataforma1(Vector2f(0.f,1450.f), "./imagens/plataforma1.png", static_cast <Fase*> (this), pgg),
 plataforma2(Vector2f(1600.f,1300.f), "./imagens/plataforma2.png", static_cast <Fase*> (this), pgg),
@@ -17,7 +17,6 @@ conjInis2(static_cast <Fase*> (this), pgg, &jogador1, &jogador2),
 inimigo3(Vector2f(5900.f, 0.f), static_cast <Fase*> (this), pgg, &jogador1, &jogador2)
 
 {
-    setImagem("./imagens/fundoFase1.png");
     adEntidade(static_cast <Entidade*> (&plataforma1));
     adEntidade(static_cast <Entidade*> (&plataforma2));
     adEntidade(static_cast <Entidade*> (&plataforma3));

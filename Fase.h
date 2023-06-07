@@ -20,7 +20,7 @@ protected:
     bool doisJogadores;
 public:
     //Construtora e eestrutora
-    Fase(GerenciadorGrafico* pgg = NULL, TelaMorte* tm = NULL);
+    Fase(GerenciadorGrafico* pgg = NULL, TelaMorte* tm = NULL, const char* cT = "./imagens/padrao.png");
     ~Fase(){}
 
     //Funcionalidades

@@ -32,7 +32,7 @@ void Jogador1::mover()
     caixa.move(velocidade);
     velocidade.y += pfase->getG() * (0.016);
     podePular = false;
-    pGerenciadorGrafico->setPosicaoView(Vector2f(getPosicao().x, getPosicao().y - 200));
+    pGerenciadorGrafico->setPosicaoView(Vector2f(getPosicao().x + 600, 600.0));
 }
 void Jogador1::morrer()
 {
@@ -49,7 +49,7 @@ void Jogador1::atacar()
         float v = 7;
         float vx, vy;
         Vector2f posicaoMouse = pGerenciadorGrafico->converteCoord(Mouse::getPosition());
-        posicaoMouse.y-=2500;
+        posicaoMouse.y-=1875;
         float tg = (posicaoMouse.y - getPosicao().y - 50) / (posicaoMouse.x - getPosicao().x);
         cout << "mouse " << posicaoMouse.x << ", " << posicaoMouse.y - 50 << endl;
         cout << "personagem " << getPosicao().x << ", " << getPosicao().y << endl;
