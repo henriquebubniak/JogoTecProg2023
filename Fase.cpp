@@ -11,10 +11,6 @@ doisJogadores(false)
 {}
 
 //Funcionalidades
-void Fase::atualiza()
-{
-    
-}
 void Fase::executarEntidades()
 {
     for (list<Entidade*>::iterator i = listaEntidade.begin(); i != listaEntidade.end(); i++)
