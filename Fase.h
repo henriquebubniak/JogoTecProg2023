@@ -32,13 +32,12 @@ public:
     void adEntidade(Entidade* e);
     void rmEntidade(Entidade* e);
 
-    //Gets
-    float get_tempo();
-    list<Entidade*>* get_lista_ent();
-    GerenciadorGrafico* get_gerenciador_grafico();
+    //Getters e Setters 
+    float get_tempo() const;
+    const list<Entidade*>* get_lista_ent();
+    GerenciadorGrafico* get_gerenciador_grafico() const;
     virtual Ente* getEnderecoJog2() = 0;
     void setDoisJogadores(bool b);
-
     virtual float getG() = 0;
 };
 
