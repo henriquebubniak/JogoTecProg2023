@@ -34,4 +34,4 @@ void Projetil::morrer()
 }
 
 //Gets
-int Projetil:: getForca() {return forca;}
+int Projetil:: getForca() const {return forca;}

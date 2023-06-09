@@ -15,14 +15,14 @@ void Entidade:: setFase(Fase* f)
     else
         cout << "FASE NULA EM setFase() DE ENTIDADE" << endl;
 }
-Vector2f Entidade::getVelocidade() {return Vector2f(0.f,0.f);}
+Vector2f Entidade::getVelocidade() const {return Vector2f(0.f,0.f);}
 
 void Entidade::setID(int i)
 {
     ID = i;
 }
 
-int Entidade::getID()
+int Entidade::getID() const
 {
     return ID;
 }

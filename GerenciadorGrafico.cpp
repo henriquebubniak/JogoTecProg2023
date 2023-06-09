@@ -31,7 +31,7 @@ void GerenciadorGrafico::desenharEnte(Ente* e)
 void GerenciadorGrafico::limpaJanela() {janela.clear();}
 
 //Sets e gets
-bool GerenciadorGrafico::get_JanelaAberta() {return janela.isOpen();}
+bool GerenciadorGrafico::get_JanelaAberta() const {return janela.isOpen();}
 RenderWindow* GerenciadorGrafico::getJanela() {return &janela;}
 void GerenciadorGrafico::setPosicaoView(Vector2f p) {view.setCenter(p);}
 
