@@ -25,6 +25,6 @@ public:
     bool getVida() {return vivo;}
     void setVivo(bool v) {vivo = v;}
     void setHp(int h) {hp = h;}
-    int getHp() {return hp;}
+    int getHp() const {return hp;}
 };
 
