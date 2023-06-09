@@ -4,28 +4,18 @@
 
 ConjuntoCowboyPerseguidor::ConjuntoCowboyPerseguidor(Fase* pF, GerenciadorGrafico* pgg, HeroiPreto* pJ1, HeroiVerde* pJ2):
     nInimigos(0),
-    listapInis(),
-    posicoesPossiveis()
+    listapInis()
 {
     srand(time(NULL));
     rand();
     nInimigos = (rand()%7) + 4;//de 4 a 10 CowboyPerseguidor
     cout << nInimigos << " CowboyPerseguidor" << endl;
-    posicoesPossiveis.push_back(Vector2f(2000.f, 0.f));
-    posicoesPossiveis.push_back(Vector2f(2300.f, 0.f));
-    posicoesPossiveis.push_back(Vector2f(2600.f, 0.f));
-    posicoesPossiveis.push_back(Vector2f(3400.f, 0.f));
-    posicoesPossiveis.push_back(Vector2f(3700.f, 0.f));
-    posicoesPossiveis.push_back(Vector2f(4000.f, 0.f));
-    posicoesPossiveis.push_back(Vector2f(4300.f, 0.f));
-    posicoesPossiveis.push_back(Vector2f(4600.f, 0.f));
-    posicoesPossiveis.push_back(Vector2f(4900.f, 0.f));
-    posicoesPossiveis.push_back(Vector2f(5200.f, 0.f));
-    for (int i = 0; i < nInimigos; i++)
+    //5800 - 8200
+    int delta = (8200-5200)/nInimigos;
+    for (float i = 5800.0; i < 8200.0; i+=(float)delta)
     {
-        listapInis.push_back(new CowboyPerseguidor(posicoesPossiveis[i], pF, pgg, pJ1, pJ2));
-    }
-    
+        listapInis.push_back(new CowboyPerseguidor(Vector2f(i, 700.f), pF, pgg, pJ1, pJ2));
+    }    
 }
 
 ConjuntoCowboyPerseguidor::~ConjuntoCowboyPerseguidor()

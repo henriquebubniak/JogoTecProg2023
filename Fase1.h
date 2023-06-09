@@ -1,10 +1,10 @@
 #pragma once
 
 #include "Fase.h"
-#include "Plataforma.h"
+#include "ConjuntoPlataformas.h"
 #include "HeroiPreto.h"
 #include "HeroiVerde.h"
-#include "CowboyAtirador.h"
+#include "ConjuntoCowboyAtirador.h"
 #include "ConjuntoCowboyPerseguidor.h"
 #include "ConjuntoMinas.h"
 #include "SuperVilao.h"
@@ -14,15 +14,10 @@ class Fase1: public Fase
 {
 private:
     float gravidade;
-    Plataforma plataforma1;
-    Plataforma plataforma3;
-    Plataforma plataforma4;
-    Plataforma plataforma5;
-    Plataforma plataforma6;
-    Plataforma plataforma7;
+    ConjuntoPlataformas conjPlataformas;
     HeroiPreto heroiPreto;
     HeroiVerde heroiVerde;
-    CowboyAtirador cowboyAtirador;
+    ConjuntoCowboyAtirador conjCowboyAtirador;
     ConjuntoCowboyPerseguidor conjCowboyPerseguidor;
     SuperVilao superVilao;
     ConjuntoMinas conjMinas;

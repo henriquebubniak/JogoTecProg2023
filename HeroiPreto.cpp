@@ -3,7 +3,7 @@
 #include <cmath>
 
 HeroiPreto::HeroiPreto(Vector2f p, Fase* f, GerenciadorGrafico* pgg, HeroiVerde* j):
-    Jogador (p, f, pgg, 10, 0.1, "./imagens/heroiPreto.png"),
+    Jogador (p, f, pgg, 100000, 0.1, "./imagens/heroiPreto.png"),
     tirosTambor(5),
     jog2(j),
     auxTempo(0.0)
