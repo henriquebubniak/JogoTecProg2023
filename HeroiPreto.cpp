@@ -46,7 +46,7 @@ void HeroiPreto::atacar()
 {
     if (Keyboard::isKeyPressed(Keyboard::F) && podeAtirar)
     {
-        float v = 7;
+        float v = 4;
         float vx, vy;
         Vector2f posicaoMouse = pGerenciadorGrafico->converteCoord(Mouse::getPosition());
         posicaoMouse.y-=1875;

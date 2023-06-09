@@ -2,10 +2,10 @@
 
 /*==================CONSTRUTORA E DESTRUTORA=========================*/
 
-Obstaculo::Obstaculo(Vector2f pos, const char* caminhoTextura,  bool d):
-Entidade(pos, caminhoTextura)
+Obstaculo::Obstaculo(Vector2f pos, const char* cT, Fase* f, GerenciadorGrafico* pgg, bool d):
+Entidade(pos, cT, f, pgg, Vector2f(0.f, 0.f)),
+danoso(d)
 {
-    danoso = d;
 }
 
 Obstaculo::~Obstaculo()

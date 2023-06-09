@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Entidade.h"
+#include "Personagem.h"
 
 class Obstaculo: public Entidade
 {
@@ -9,10 +9,10 @@ protected:
 public:
 
     //construtora e destrutora
-    Obstaculo(Vector2f pos, const char* caminhoTextura = "imagens/padrao.png", bool t = true);
+    Obstaculo(Vector2f pos = Vector2f(0.f, 0.f), const char* cT = "./imagens/padrao.png", Fase* f = NULL, GerenciadorGrafico* pgg = NULL, bool d = true);
     ~Obstaculo();
 
     //Fun��es
-    virtual void aplicaEfeito(Entidade* ent) {}
+    virtual void obstacular(Entidade* ent) = 0;
     bool getDanoso();
 };

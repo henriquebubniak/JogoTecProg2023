@@ -6,6 +6,7 @@
 #include "HeroiVerde.h"
 #include "CowboyAtirador.h"
 #include "ConjuntoCowboyPerseguidor.h"
+#include "ConjuntoMinas.h"
 #include "SuperVilao.h"
 #include <algorithm>
 
@@ -14,7 +15,6 @@ class Fase1: public Fase
 private:
     float gravidade;
     Plataforma plataforma1;
-    Plataforma plataforma2;
     Plataforma plataforma3;
     Plataforma plataforma4;
     Plataforma plataforma5;
@@ -25,6 +25,7 @@ private:
     CowboyAtirador cowboyAtirador;
     ConjuntoCowboyPerseguidor conjCowboyPerseguidor;
     SuperVilao superVilao;
+    ConjuntoMinas conjMinas;
 public:
     //Construtora e destrutora
     Fase1(GerenciadorGrafico* pgg = NULL, TelaMorte* tm = NULL);
