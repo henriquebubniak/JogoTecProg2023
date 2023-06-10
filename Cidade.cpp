@@ -1,7 +1,7 @@
-#include "Fase1.h"
+#include "Cidade.h"
 
-Fase1::Fase1(GerenciadorGrafico* pgg, TelaMorte* tm):
-Fase(pgg, tm, "./imagens/fundoFase1.jpg"),
+Cidade::Cidade(GerenciadorGrafico* pgg, TelaMorte* tm):
+Fase(pgg, tm, "./imagens/fundoCidade.jpg"),
 gravidade(1),
 conjPlataformas(static_cast<Fase*>(this), pgg),
 heroiPreto(Vector2f(0.f,0.f), static_cast <Fase*> (this), pgg, &heroiVerde),
@@ -23,9 +23,9 @@ conjLamas(static_cast<Fase*>(this), pgg)
     adEntidade(static_cast <Entidade*> (&superVilao));
 }
 
-float Fase1::getG() {return gravidade;}
+float Cidade::getG() {return gravidade;}
 
-Ente* Fase1::getEnderecoJog2()
+Ente* Cidade::getEnderecoJog2()
 {
     return static_cast<Ente*>(&heroiVerde);
 }

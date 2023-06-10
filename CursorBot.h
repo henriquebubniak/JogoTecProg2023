@@ -18,14 +18,14 @@ public:
     void setIterador(typename list<Botao<T>*>::iterator ib)
     {
         iteradorb = ib;
-        caixa.setPosition((*iteradorb)->getPosicao() - Vector2f(100.f, 0.f));
+        caixa.setPosition((*iteradorb)->getPosicao() - Vector2f(120.f, -20.f));
     }
     void avanca()
     {
         if(iteradorb != --pListaBotoes->end())
         {
             iteradorb++;
-            caixa.setPosition((*iteradorb)->getPosicao() - Vector2f(100.f, 0.f));
+            caixa.setPosition((*iteradorb)->getPosicao() - Vector2f(120.f, -20.f));
         }    
     }
     void volta()
@@ -33,7 +33,7 @@ public:
         if(iteradorb != pListaBotoes->begin())
         {
             iteradorb--;
-            caixa.setPosition((*iteradorb)->getPosicao() - Vector2f(100.f, 0.f));
+            caixa.setPosition((*iteradorb)->getPosicao() - Vector2f(120.f, -20.f));
         }    
     }
     void acao()

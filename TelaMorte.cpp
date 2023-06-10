@@ -1,8 +1,8 @@
 #include "TelaMorte.h"
-#include "Fase1.h"
+#include "Cidade.h"
 #include "Menu.h" 
 
-TelaMorte::TelaMorte(GerenciadorGrafico* pgg, Fase1* pf1):
+TelaMorte::TelaMorte(GerenciadorGrafico* pgg, Cidade* pf1):
 Ente("./imagens/TelaMorte.png", pgg),
 listaBotoes(),
 cursor("./imagens/cursor.png", pgg, &listaBotoes),

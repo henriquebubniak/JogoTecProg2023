@@ -3,7 +3,7 @@
 #include "Ente.h"
 #include "GerenciadorGrafico.h"
 #include "Botao.h"
-#include "Fase1.h"
+#include "Cidade.h"
 #include "Fase2.h"
 #include "CursorBot.h"
 #include <list>
@@ -12,13 +12,13 @@ using namespace std;
 class Menu: public Ente
 {
 private:
-    Fase1* pFase1;
+    Cidade* pFase1;
     list<Botao<Menu>*> listaBotoes;
     CursorBot<Menu> cursor;
     bool clique;
 public:
     //construtora e destrutora
-    Menu(GerenciadorGrafico* pgg = NULL, Fase1* pf1 = NULL);
+    Menu(GerenciadorGrafico* pgg = NULL, Cidade* pf1 = NULL);
     ~Menu();
 
     //metodos

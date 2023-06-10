@@ -2,7 +2,7 @@
 
 #include "GerenciadorGrafico.h"
 #include "Menu.h"
-#include "Fase1.h"
+#include "Cidade.h"
 #include "TelaMorte.h"
 #include <list>
 #include <iostream>
@@ -14,7 +14,7 @@ class Jogo
 private:
     GerenciadorGrafico gg;
     Menu menu;
-    Fase1 fase1;
+    Cidade fase1;
     TelaMorte telaMorte;
 public:
     //construtora e destrutora
