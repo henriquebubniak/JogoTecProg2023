@@ -15,7 +15,7 @@ void Entidade:: setFase(Fase* f)
     else
         cout << "FASE NULA EM setFase() DE ENTIDADE" << endl;
 }
-Vector2f Entidade::getVelocidade() const {return Vector2f(0.f,0.f);}
+Vector2f Entidade::getVelocidade() const {return velocidade;}
 
 void Entidade::setID(int i)
 {

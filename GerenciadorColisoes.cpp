@@ -37,12 +37,16 @@ void GerenciadorDeColisoes:: testaColisoesEntidades ()
                         if (proxPosEntidade1.left + proxPosEntidade1.width - posEntidade2.left <= proxPosEntidade1.top + proxPosEntidade1.height - posEntidade2.top) //Colisao a esquerda
                         {
                             (*i)->setVelocidadeX (0.f);
+                            (*i)->setPosicao (Vector2f(posEntidade2.left - posEntidade1.width, posEntidade1.top));
                             (*j)->setVelocidadeX (0.f);
+                            (*j)->setPosicao (Vector2f(posEntidade2.left, posEntidade2.top));
                         }
                         else //Colisao acima
                         {
                             (*i)->setVelocidadeY (0.f);
+                            (*i)->setPosicao(Vector2f(posEntidade1.left, posEntidade2.top - posEntidade1.height));
                             (*j)->setVelocidadeY (0.f);
+                            (*j)->setPosicao (Vector2f(posEntidade2.left, posEntidade2.top));
                             (*i)->setPodePular (true);
                         }
                     }
@@ -51,18 +55,24 @@ void GerenciadorDeColisoes:: testaColisoesEntidades ()
                         if (proxPosEntidade1.left + proxPosEntidade1.width - posEntidade2.left <= posEntidade2.top + posEntidade2.height - proxPosEntidade1.top) //Colisao a esquerda
                         {
                             (*i)->setVelocidadeX (0.f);
+                            (*i)->setPosicao (Vector2f(posEntidade2.left - posEntidade1.width, posEntidade1.top));
                             (*j)->setVelocidadeX (0.f);
+                            (*j)->setPosicao (Vector2f(posEntidade2.left, posEntidade2.top));
                         }
                         else //Colisao abaixo
                         {
                             (*i)->setVelocidadeY (0.f);
+                            (*i)->setPosicao(Vector2f(posEntidade1.left, posEntidade2.top + posEntidade2.height));
                             (*j)->setVelocidadeY (0.f);
+                            (*j)->setPosicao (Vector2f(posEntidade2.left, posEntidade2.top));
                         }
                     }
                     else //Colisao a esquerda
                     {
                         (*i)->setVelocidadeX (0.f);
+                        (*i)->setPosicao (Vector2f(posEntidade2.left - posEntidade1.width, posEntidade1.top));
                         (*j)->setVelocidadeX (0.f);
+                        (*j)->setPosicao (Vector2f(posEntidade2.left, posEntidade2.top));
                     }
                 }
                 else if (proxPosEntidade1.left + proxPosEntidade1.width > posEntidade2.left + posEntidade2.width)
@@ -79,7 +89,9 @@ void GerenciadorDeColisoes:: testaColisoesEntidades ()
                         else //Colisao acima
                         {
                             (*i)->setVelocidadeY (0.f);
+                            (*i)->setPosicao(Vector2f(posEntidade1.left, posEntidade2.top - posEntidade1.height));
                             (*j)->setVelocidadeY (0.f);
+                            (*j)->setPosicao (Vector2f(posEntidade2.left, posEntidade2.top));
                             (*i)->setPodePular (true);
                         }
                     }
@@ -88,30 +100,40 @@ void GerenciadorDeColisoes:: testaColisoesEntidades ()
                         if (posEntidade2.left + posEntidade2.width - proxPosEntidade1.left <= posEntidade2.top + posEntidade2.height - proxPosEntidade1.top) //Colisao a direita
                         {
                             (*i)->setVelocidadeX (0.f);
+                            (*i)->setPosicao(Vector2f(posEntidade2.left + posEntidade2.width, posEntidade1.top));
                             (*j)->setVelocidadeX (0.f);
+                            (*j)->setPosicao (Vector2f(posEntidade2.left, posEntidade2.top));
                         }
                         else //Colisao abaixo
                         {
                             (*i)->setVelocidadeY (0.f);
+                            (*i)->setPosicao(Vector2f(posEntidade1.left, posEntidade2.top + posEntidade2.height));
                             (*j)->setVelocidadeY (0.f);
+                            (*j)->setPosicao (Vector2f(posEntidade2.left, posEntidade2.top));
                         }
                     }
                     else //Colisao a direita
                     {
                         (*i)->setVelocidadeX (0.f);
+                        (*i)->setPosicao(Vector2f(posEntidade2.left + posEntidade2.width, posEntidade1.top));
                         (*j)->setVelocidadeX (0.f);
+                        (*j)->setPosicao (Vector2f(posEntidade2.left, posEntidade2.top));
                     }
                 }
                 else if(proxPosEntidade1.top < posEntidade2.top) //Colisao acima
                 {
                     (*i)->setVelocidadeY (0.f);
+                    (*i)->setPosicao(Vector2f(posEntidade1.left, posEntidade2.top - posEntidade1.height));
                     (*j)->setVelocidadeY (0.f);
+                    (*j)->setPosicao (Vector2f(posEntidade2.left, posEntidade2.top));
                     (*i)->setPodePular (true);
                 }
                 else //Colisao abaixo
                 {
                     (*i)->setVelocidadeY (0.f);
+                    (*i)->setPosicao(Vector2f(posEntidade1.left, posEntidade2.top + posEntidade2.height));
                     (*j)->setVelocidadeY (0.f);
+                    (*j)->setPosicao (Vector2f(posEntidade2.left, posEntidade2.top));
                 }
 
                 testaColisaoPersonagemProjetil(i, j, &listaMorte);

@@ -14,5 +14,5 @@ Mina::~Mina()
 void Mina:: obstacular(Entidade* ent){
 
     ent->receberDano(dano);
-    ent->setVelocidadeY(-10.0f);
+    ent->setVelocidadeY(-5.0f);
 }

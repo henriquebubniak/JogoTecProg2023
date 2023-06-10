@@ -7,6 +7,7 @@
 #include "ConjuntoCowboyAtirador.h"
 #include "ConjuntoCowboyPerseguidor.h"
 #include "ConjuntoMinas.h"
+#include "ConjuntoLamas.h"
 #include "SuperVilao.h"
 #include <algorithm>
 
@@ -21,6 +22,7 @@ private:
     ConjuntoCowboyPerseguidor conjCowboyPerseguidor;
     SuperVilao superVilao;
     ConjuntoMinas conjMinas;
+    ConjuntoLamas conjLamas;
 public:
     //Construtora e destrutora
     Fase1(GerenciadorGrafico* pgg = NULL, TelaMorte* tm = NULL);
