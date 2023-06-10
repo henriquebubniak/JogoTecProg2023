@@ -14,7 +14,7 @@ ConjuntoPlataformas::ConjuntoPlataformas(Fase* pF, GerenciadorGrafico* pgg):
     posicoesPossiveis.push_back(Vector2f(5800.f,1000.f));
     posicoesPossiveis.push_back(Vector2f(7000.f,1000.f));
     posicoesPossiveis.push_back(Vector2f(8200.f,1450.f));
-    posicoesPossiveis.push_back(Vector2f(9800.f,1450.f));
+    posicoesPossiveis.push_back(Vector2f(9400.f,1450.f));
     posicoesPossiveis.push_back(Vector2f(11500.f,1450.f));
     posicoesPossiveis.push_back(Vector2f(12700.f,1450.f));
     posicoesPossiveis.push_back(Vector2f(14300.f,1450.f));

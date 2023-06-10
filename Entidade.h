@@ -25,6 +25,7 @@ public:
     virtual void mover() {};
     void executar();
     virtual void receberDano(int i) {};
+    virtual void obstacular(Entidade* e){};
 
     //Sets e gets
     void setFase(Fase* f);
@@ -36,4 +37,5 @@ public:
     virtual void setVelocidadeY(float v){}
     virtual void setPodePular(bool p){}
     virtual int getHp() const {return 0;}
+    virtual const bool getPerene() const {return true;};
 };

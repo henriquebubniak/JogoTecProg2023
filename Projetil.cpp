@@ -28,9 +28,7 @@ bool Projetil::colide(Entidade* ent)
 void Projetil::morrer()
 {
     pfase->rmEntidade(static_cast<Entidade*>(this));
-    cout << "morreu projetil" << endl;
     delete(this);
-    cout << "morreu projetil" << endl;
 }
 
 //Gets

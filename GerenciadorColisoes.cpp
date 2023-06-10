@@ -30,8 +30,6 @@ void GerenciadorDeColisoes:: testaColisoesEntidades ()
             posEntidade2 = (*j)->getGlobalBounds();
             if (proxPosEntidade1.intersects(posEntidade2))
             {
-                testaColisaoPersonagemProjetil(i, j, &listaMorte);
-                testaColisaoJogadorInimigo(i, j, &listaMorte);
                 if (proxPosEntidade1.left < posEntidade2.left)
                 {
                     if (proxPosEntidade1.top < posEntidade2.top && proxPosEntidade1.top + proxPosEntidade1.height < posEntidade2.top + posEntidade2.height)
@@ -115,6 +113,10 @@ void GerenciadorDeColisoes:: testaColisoesEntidades ()
                     (*i)->setVelocidadeY (0.f);
                     (*j)->setVelocidadeY (0.f);
                 }
+
+                testaColisaoPersonagemProjetil(i, j, &listaMorte);
+                testeColisaoPersonagemObstaculo(i, j, &listaMorte);
+                testaColisaoJogadorInimigo(i, j, &listaMorte);
             }
         }
         if ((*i)->getGlobalBounds().top + (*i)->getGlobalBounds().height >= 2560)
@@ -172,4 +174,29 @@ void GerenciadorDeColisoes::colisaoEsquerda(Entidade* e1, Entidade* e2)
 {
     e1->setVelocidadeX (0.f);
     e2->setVelocidadeX (0.f);
+}
+
+
+void GerenciadorDeColisoes::testeColisaoPersonagemObstaculo(list<Entidade*>::iterator i, list<Entidade*>::iterator j, list<Entidade*>* pListaMorte)
+{
+    if ((((*i)->getID() == 3 || (*i)->getID() == 4) && (*j)->getID() == 5) ||
+        ((*i)->getID() == 5 && ((*j)->getID() == 3 || (*j)->getID() == 4)))//Colisao entre Obstaculo e Personagem (jogador ou inimigo)
+    {
+        if ((*j)->getID() == 5)
+        {
+            (*j)->obstacular(*i);
+            if (!(*j)->getPerene())
+                pListaMorte->push_back(*j);
+            if ((*i)->getHp() <= 0)
+                pListaMorte->push_back(*i);
+        }
+        else
+        {
+            (*i)->obstacular(*j);
+            if (!(*i)->getPerene())
+                pListaMorte->push_back(*i);
+            if ((*j)->getHp() <= 0)
+                pListaMorte->push_back(*j);
+        }                    
+    }
 }

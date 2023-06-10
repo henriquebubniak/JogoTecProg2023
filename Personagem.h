@@ -20,8 +20,8 @@ public:
 
     //Sets e gets
     void setPodePular (bool p);
-    void setVelocidadeX(float v) {velocidade.x = 0;}
-    void setVelocidadeY(float v) {velocidade.y = 0;}
+    void setVelocidadeX(float v) {velocidade.x = v;}
+    void setVelocidadeY(float v) {velocidade.y = v;}
     bool getVida() {return vivo;}
     void setVivo(bool v) {vivo = v;}
     void setHp(int h) {hp = h;}
