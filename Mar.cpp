@@ -1,8 +1,8 @@
-#include "Cidade.h"
+#include "Mar.h"
 
-Cidade::Cidade(GerenciadorGrafico* pgg, TelaMorte* tm, Fase* proxF):
-Fase(pgg, tm, "./imagens/fundoCidade.jpg", proxF),
-gravidade(1),
+Mar::Mar(GerenciadorGrafico* pgg, TelaMorte* tm):
+Fase(pgg, tm, "./imagens/fundoMar.jpg"),
+gravidade(0.5),
 conjPlataformas(static_cast<Fase*>(this), pgg),
 heroiPreto(Vector2f(0.f,0.f), static_cast <Fase*> (this), pgg, &heroiVerde),
 heroiVerde(Vector2f(300.f,0.f), static_cast <Fase*> (this), pgg, &heroiPreto),
@@ -23,19 +23,13 @@ conjLamas(static_cast<Fase*>(this), pgg)
     adEntidade(static_cast <Entidade*> (&superVilao));
 }
 
-float Cidade::getG() {return gravidade;}
+float Mar::getG() {return gravidade;}
 
-Ente* Cidade::getEnderecoJog2()
+Ente* Mar::getEnderecoJog2()
 {
     return static_cast<Ente*>(&heroiVerde);
 }
-
-bool Cidade::verificaAvancoDeFase()
+bool Mar::verificaAvancoDeFase()
 {
-    if (heroiPreto.getPosicao().x >= 16700)
-    {
-        return true;
-    }
     return false;
-    
 }

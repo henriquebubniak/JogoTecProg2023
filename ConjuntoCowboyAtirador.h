@@ -1,3 +1,4 @@
+#pragma once
 #include "CowboyAtirador.h"
 #include <stdlib.h>
 #include <time.h>

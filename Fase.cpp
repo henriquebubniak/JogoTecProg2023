@@ -1,13 +1,14 @@
 #include "Fase.h"
 
 //Construtora e destrutora
-Fase::Fase(GerenciadorGrafico* pgg, TelaMorte* tm, const char* cT):
+Fase::Fase(GerenciadorGrafico* pgg, TelaMorte* tm, const char* cT, Fase* proxF):
 Ente(cT, pgg, Vector2f(-1000.0, -1000.0)),
 listaEntidade(),
 gdc(&listaEntidade, pgg),
 telaMorte(tm),
 tempo(0),
-doisJogadores(false)
+doisJogadores(false),
+proximaFase(proxF)
 {}
 
 //Funcionalidades
@@ -25,6 +26,18 @@ void Fase::executar()
     //lista entidades, this
     gdc.testaColisoes();
     desenhar();
+    if (verificaAvancoDeFase())
+    {
+        if (proximaFase)
+        {
+            setAtivo(false);
+            proximaFase->setAtivo(true);
+            if (doisJogadores)
+            {
+                proximaFase->setDoisJogadores(true);
+            }
+        }
+    }
     tempo += 3;
 }
 

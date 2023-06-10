@@ -1,3 +1,4 @@
+#pragma once
 #include "Lama.h"
 #include <stdlib.h>
 #include <time.h>

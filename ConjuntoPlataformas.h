@@ -1,3 +1,4 @@
+#pragma once
 #include "Plataforma.h"
 #include <stdlib.h>
 #include <time.h>

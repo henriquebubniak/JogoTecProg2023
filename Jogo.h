@@ -3,6 +3,7 @@
 #include "GerenciadorGrafico.h"
 #include "Menu.h"
 #include "Cidade.h"
+#include "Mar.h"
 #include "TelaMorte.h"
 #include <list>
 #include <iostream>
@@ -15,6 +16,7 @@ private:
     GerenciadorGrafico gg;
     Menu menu;
     Cidade fase1;
+    Mar fase2;
     TelaMorte telaMorte;
 public:
     //construtora e destrutora

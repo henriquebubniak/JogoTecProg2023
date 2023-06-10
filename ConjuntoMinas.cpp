@@ -12,7 +12,7 @@ ConjuntoMinas::ConjuntoMinas(Fase* pF, GerenciadorGrafico* pgg):
     cout << nMinas << " Minas" << endl;
     //8200 - 11000
     int delta = (10600-8200)/nMinas;
-    for (float i = 8200.0; i < 10600.0; i+=(float)delta)
+    for (float i = 8200.0; i < 10500.0; i+=(float)delta)
     {
         listapMinas.push_back(new Mina(Vector2f(i, 1400.f), pF, pgg));
     }    

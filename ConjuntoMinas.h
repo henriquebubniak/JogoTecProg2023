@@ -1,3 +1,4 @@
+#pragma once
 #include "Mina.h"
 #include <stdlib.h>
 #include <time.h>

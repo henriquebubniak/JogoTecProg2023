@@ -2,17 +2,18 @@
 #include "Jogo.h"
 
 //Construtora e destrutora
-Menu::Menu(GerenciadorGrafico* pgg, Cidade* pf1):
+Menu::Menu(GerenciadorGrafico* pgg, Cidade* pf1, Mar* pf2):
 Ente("./imagens/menu.png", pgg),
 pFase1(pf1),
+pFase2(pf2),
 listaBotoes(),
 cursor("./imagens/cursor.png", pgg, &listaBotoes),
 clique(true)
 {
     listaBotoes.push_back(new Botao<Menu>("./imagens/botao1Fase1Jog.png", pgg, Vector2f(0.f,100.f), this, &Menu::carrega1Fase1jog));
-    listaBotoes.push_back(new Botao<Menu>("./imagens/botao1Fase2Jog.png", pgg, Vector2f(0.f,700.f), this, &Menu::carrega1Fase2jog));
-    listaBotoes.push_back(new Botao<Menu>("./imagens/botao2Fase1Jog.png", pgg, Vector2f(0.f,1000.f), this, &Menu::carrega2Fase1jog));
-    listaBotoes.push_back(new Botao<Menu>("./imagens/botao2Fase2Jog.png", pgg, Vector2f(0.f,1300.f), this, &Menu::carrega2Fase2jog));
+    listaBotoes.push_back(new Botao<Menu>("./imagens/botao1Fase2Jog.png", pgg, Vector2f(0.f,400.f), this, &Menu::carrega1Fase2jog));
+    listaBotoes.push_back(new Botao<Menu>("./imagens/botao2Fase1Jog.png", pgg, Vector2f(0.f,700.f), this, &Menu::carrega2Fase1jog));
+    listaBotoes.push_back(new Botao<Menu>("./imagens/botao2Fase2Jog.png", pgg, Vector2f(0.f,1000.f), this, &Menu::carrega2Fase2jog));
     cursor.setIterador(listaBotoes.begin());
 }
 Menu::~Menu(){}
@@ -75,8 +76,13 @@ void Menu::carrega1Fase2jog()
 }
 void Menu::carrega2Fase1jog()
 {
+    setAtivo(false);
+    pFase2->setAtivo(true);
 }
 void Menu::carrega2Fase2jog()
 {
+    setAtivo(false);
+    pFase2->setDoisJogadores(true);
+    pFase2->setAtivo(true);
 }
 

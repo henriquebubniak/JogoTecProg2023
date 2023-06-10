@@ -16,11 +16,12 @@ protected:
     list<Entidade*> listaEntidade;
     GerenciadorDeColisoes gdc;
     TelaMorte* telaMorte;
+    Fase* proximaFase;
     float tempo;
     bool doisJogadores;
 public:
     //Construtora e eestrutora
-    Fase(GerenciadorGrafico* pgg = NULL, TelaMorte* tm = NULL, const char* cT = "./imagens/padrao.png");
+    Fase(GerenciadorGrafico* pgg = NULL, TelaMorte* tm = NULL, const char* cT = "./imagens/padrao.png", Fase* proxF = NULL);
     ~Fase(){}
 
     //Funcionalidades
@@ -39,5 +40,6 @@ public:
     virtual Ente* getEnderecoJog2() = 0;
     void setDoisJogadores(bool b);
     virtual float getG() = 0;
+    virtual bool verificaAvancoDeFase() = 0;
 };
 

@@ -11,7 +11,7 @@
 #include "SuperVilao.h"
 #include <algorithm>
 
-class Cidade: public Fase
+class Mar: public Fase
 {
 private:
     float gravidade;
@@ -25,8 +25,8 @@ private:
     ConjuntoLamas conjLamas;
 public:
     //Construtora e destrutora
-    Cidade(GerenciadorGrafico* pgg = NULL, TelaMorte* tm = NULL, Fase* proxF = NULL);
-    ~Cidade(){}
+    Mar(GerenciadorGrafico* pgg = NULL, TelaMorte* tm = NULL);
+    ~Mar(){}
     Ente* getEnderecoJog2();
     float getG();
     bool verificaAvancoDeFase();
