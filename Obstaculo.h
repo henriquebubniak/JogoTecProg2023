@@ -17,4 +17,5 @@ public:
     const bool getDanoso() const;
     const bool getPerene() const;
     void morrer();
+    void mover();
 };

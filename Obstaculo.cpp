@@ -29,3 +29,9 @@ void Obstaculo::morrer()
     pfase->rmEntidade(static_cast<Entidade*>(this));
     delete(this);
 }
+void Obstaculo::mover()
+{
+    caixa.move(velocidade);
+    velocidade.y += pfase->getG() * (0.016);
+    velocidade.x *= 0.999;
+}

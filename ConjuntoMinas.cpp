@@ -14,7 +14,7 @@ ConjuntoMinas::ConjuntoMinas(Fase* pF, GerenciadorGrafico* pgg):
     int delta = (9300-7000)/nMinas;
     for (float i = 7000.0; i < 9300.0; i+=(float)delta)
     {
-        listapMinas.push_back(new Mina(Vector2f(i, 1400.f), pF, pgg));
+        listapMinas.push_back(new Mina(Vector2f(i, 0.f), pF, pgg));
     }    
 }
 

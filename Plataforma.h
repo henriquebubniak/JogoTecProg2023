@@ -13,5 +13,6 @@ public:
 
     //Funcionalidades
     void dano(int d) {}
+    void mover();
 };
 

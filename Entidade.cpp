@@ -32,3 +32,12 @@ void Entidade::executar()
     mover();
     atacar();
 }
+
+void Entidade::setVelocidadeX(float v)
+{
+    velocidade.x = v;
+}
+void Entidade::setVelocidadeY(float v)
+{
+    velocidade.y = v;
+}
