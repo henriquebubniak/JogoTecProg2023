@@ -1,4 +1,0 @@
-personagem = 1
-projetil = 2
-jogador = 3
-inimigo = 4
