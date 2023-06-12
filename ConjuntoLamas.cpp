@@ -8,15 +8,15 @@ ConjuntoLamas::ConjuntoLamas(Fase* pF, GerenciadorGrafico* pgg):
 {
     srand(time(NULL));
     rand();
-    nLamas = (rand()%4) + 3;//de 4 a 10 Lamas
+    nLamas = (rand()%4) + 3;//de 3 a 6 Lamas
     vector<Vector2f> posPossiveis;
     vector<int> indicesPos;
     posPossiveis.push_back(Vector2f(2200.f, 1445.f));
     posPossiveis.push_back(Vector2f(3500.f, 995.f));
     posPossiveis.push_back(Vector2f(4700.f, 545.f));
-    posPossiveis.push_back(Vector2f(7600.f, 995.f));
+    posPossiveis.push_back(Vector2f(7600.f, 1445.f));
     posPossiveis.push_back(Vector2f(8800.f, 1445.f));
-    posPossiveis.push_back(Vector2f(10000.f, 1445.f));
+    posPossiveis.push_back(Vector2f(12000.f, 1445.f));
     cout << nLamas << " Lamas" << endl;
     while (indicesPos.size() < nLamas)
     {

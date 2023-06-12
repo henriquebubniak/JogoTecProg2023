@@ -13,7 +13,7 @@ LINUX_LDFLAGS = -L/usr/lib/x86_64-linux-gnu -lsfml-graphics -lsfml-window -lsfml
 
 # Opções de compilação para macOS
 MACOS_CXX = g++
-MACOS_CXXFLAGS = -fdiagnostics-color=always -g
+MACOS_CXXFLAGS = -Wno-c++11-extensions -fdiagnostics-color=always -g
 MACOS_INCLUDES = -I/opt/homebrew/Cellar/sfml/2.5.1_2/include
 MACOS_LDFLAGS = -L/opt/homebrew/Cellar/sfml/2.5.1_2/lib -lsfml-graphics -lsfml-window -lsfml-system
 

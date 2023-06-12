@@ -8,7 +8,7 @@ heroiPreto(Vector2f(0.f,0.f), static_cast <Fase*> (this), pgg, &heroiVerde),
 heroiVerde(Vector2f(300.f,0.f), static_cast <Fase*> (this), pgg, &heroiPreto),
 conjCowboyAtirador(static_cast <Fase*> (this), pgg, &heroiPreto, &heroiVerde),
 conjCowboyPerseguidor(static_cast <Fase*> (this), pgg, &heroiPreto, &heroiVerde),
-superVilao(Vector2f(15500.f, 0.f), static_cast <Fase*> (this), pgg, &heroiPreto, &heroiVerde),
+superVilao(Vector2f(13300.f, 0.f), static_cast <Fase*> (this), pgg, &heroiPreto, &heroiVerde),
 conjMinas(static_cast<Fase*>(this), pgg),
 conjLamas(static_cast<Fase*>(this), pgg)
 
@@ -32,7 +32,7 @@ Ente* Cidade::getEnderecoJog2()
 
 bool Cidade::verificaAvancoDeFase()
 {
-    if (heroiPreto.getPosicao().x >= 16700)
+    if (heroiPreto.getPosicao().x >= 13300)
     {
         return true;
     }

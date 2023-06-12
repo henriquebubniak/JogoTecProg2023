@@ -3,7 +3,7 @@
 #include "Fase.h"
 
 ConjuntoPlataformas::ConjuntoPlataformas(Fase* pF, GerenciadorGrafico* pgg):
-    nPlataformas(11),
+    nPlataformas(10),
     listapPlataformas(),
     posicoesPossiveis()
 {
@@ -12,12 +12,11 @@ ConjuntoPlataformas::ConjuntoPlataformas(Fase* pF, GerenciadorGrafico* pgg):
     posicoesPossiveis.push_back(Vector2f(2900.f,1000.f));
     posicoesPossiveis.push_back(Vector2f(4100.f,550.f));
     posicoesPossiveis.push_back(Vector2f(5800.f,1000.f));
-    posicoesPossiveis.push_back(Vector2f(7000.f,1000.f));
+    posicoesPossiveis.push_back(Vector2f(7000.f,1450.f));
     posicoesPossiveis.push_back(Vector2f(8200.f,1450.f));
-    posicoesPossiveis.push_back(Vector2f(9400.f,1450.f));
+    posicoesPossiveis.push_back(Vector2f(10300.f,1450.f));
     posicoesPossiveis.push_back(Vector2f(11500.f,1450.f));
-    posicoesPossiveis.push_back(Vector2f(12700.f,1450.f));
-    posicoesPossiveis.push_back(Vector2f(14300.f,1450.f));
+    posicoesPossiveis.push_back(Vector2f(13100.f,1450.f));
 
     for (int i = 0; i < nPlataformas; i++)
     {

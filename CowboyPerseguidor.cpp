@@ -3,7 +3,7 @@
 #include <cmath>
 
 CowboyPerseguidor::CowboyPerseguidor(Vector2f p, Fase* f, GerenciadorGrafico* pgg, HeroiPreto* pJ1, HeroiVerde* pJ2):
-Inimigo (p, f, pgg, 50, 0.01, "./imagens/cowboyPerseguidor.png", pJ1, pJ2),
+Inimigo (p, f, pgg, 20, 0.01, "./imagens/cowboyPerseguidor.png", pJ1, pJ2),
 alcance(1250.0)
 {
     setID(4);

@@ -8,11 +8,11 @@ ConjuntoMinas::ConjuntoMinas(Fase* pF, GerenciadorGrafico* pgg):
 {
     srand(time(NULL));
     rand();
-    nMinas = (rand()%7) + 4;//de 4 a 10 CowboyPerseguidor
+    nMinas = (rand()%7) + 4;//de 4 a 10 Minas
     cout << nMinas << " Minas" << endl;
-    //8200 - 11000
-    int delta = (10600-8200)/nMinas;
-    for (float i = 8200.0; i < 10500.0; i+=(float)delta)
+    //7000 - 9300
+    int delta = (9300-7000)/nMinas;
+    for (float i = 7000.0; i < 9300.0; i+=(float)delta)
     {
         listapMinas.push_back(new Mina(Vector2f(i, 1400.f), pF, pgg));
     }    

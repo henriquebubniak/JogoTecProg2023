@@ -1,14 +1,14 @@
 #include "Mar.h"
 
 Mar::Mar(GerenciadorGrafico* pgg, TelaMorte* tm):
-Fase(pgg, tm, "./imagens/fundoMar.jpg"),
+Fase(pgg, tm, "./imagens/fundoMar.png"),
 gravidade(0.5),
 conjPlataformas(static_cast<Fase*>(this), pgg),
 heroiPreto(Vector2f(0.f,0.f), static_cast <Fase*> (this), pgg, &heroiVerde),
 heroiVerde(Vector2f(300.f,0.f), static_cast <Fase*> (this), pgg, &heroiPreto),
 conjCowboyAtirador(static_cast <Fase*> (this), pgg, &heroiPreto, &heroiVerde),
 conjCowboyPerseguidor(static_cast <Fase*> (this), pgg, &heroiPreto, &heroiVerde),
-superVilao(Vector2f(15500.f, 0.f), static_cast <Fase*> (this), pgg, &heroiPreto, &heroiVerde),
+superVilao(Vector2f(13300.f, 0.f), static_cast <Fase*> (this), pgg, &heroiPreto, &heroiVerde),
 conjMinas(static_cast<Fase*>(this), pgg),
 conjLamas(static_cast<Fase*>(this), pgg)
 
