@@ -2,10 +2,11 @@
 #include <stdlib.h>
 #include "Fase.h"
 
-ConjuntoPlataformas::ConjuntoPlataformas(Fase* pF, GerenciadorGrafico* pgg):
+ConjuntoPlataformas::ConjuntoPlataformas(Fase* pF, GerenciadorGrafico* pgg, int f):
     nPlataformas(10),
     listapPlataformas(),
-    posicoesPossiveis()
+    posicoesPossiveis(),
+    fase(f)
 {
     posicoesPossiveis.push_back(Vector2f(0.f,1450.f));
     posicoesPossiveis.push_back(Vector2f(1600.f,1450.f));
@@ -17,11 +18,16 @@ ConjuntoPlataformas::ConjuntoPlataformas(Fase* pF, GerenciadorGrafico* pgg):
     posicoesPossiveis.push_back(Vector2f(10300.f,1450.f));
     posicoesPossiveis.push_back(Vector2f(11500.f,1450.f));
     posicoesPossiveis.push_back(Vector2f(13100.f,1450.f));
-
-    for (int i = 0; i < nPlataformas; i++)
-    {
-        listapPlataformas.push_back(new Plataforma(posicoesPossiveis[i], pF, pgg));
-    }
+    if (f == 1)
+        for (int i = 0; i < nPlataformas; i++)
+        {
+            listapPlataformas.push_back(new Plataforma(posicoesPossiveis[i], "./imagens/plataformaCidade.png", pF, pgg));
+        }
+    if (f == 2)
+        for (int i = 0; i < nPlataformas; i++)
+        {
+            listapPlataformas.push_back(new Plataforma(posicoesPossiveis[i], "./imagens/plataformaMar.png", pF, pgg));
+        }
     
 }
 

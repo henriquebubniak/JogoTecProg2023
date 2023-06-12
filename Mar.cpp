@@ -3,7 +3,7 @@
 Mar::Mar(GerenciadorGrafico* pgg, TelaMorte* tm):
 Fase(pgg, tm, "./imagens/fundoMar.png"),
 gravidade(0.5),
-conjPlataformas(static_cast<Fase*>(this), pgg),
+conjPlataformas(static_cast<Fase*>(this), pgg, 2),
 heroiPreto(Vector2f(0.f,0.f), static_cast <Fase*> (this), pgg, &heroiVerde),
 heroiVerde(Vector2f(300.f,0.f), static_cast <Fase*> (this), pgg, &heroiPreto),
 conjCowboyAtirador(static_cast <Fase*> (this), pgg, &heroiPreto, &heroiVerde),
