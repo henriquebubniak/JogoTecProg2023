@@ -4,9 +4,9 @@
 #include <cmath>
 
 HeroiVerde::HeroiVerde(Vector2f p, Fase* f, GerenciadorGrafico* pgg, HeroiPreto* j):
-Personagem (p, f, pgg, 10, 0.1, "./imagens/heroiVerde.png"),
-tirosTambor(5),
-jog1(j)
+Jogador (p, f, pgg, 10, 0.1, "./imagens/heroiVerde.png"),
+jog1(j),
+forcaProjetil(7)
 {}
 
 void HeroiVerde::mover()
@@ -74,8 +74,7 @@ void HeroiVerde::atacar()
                 vx = -v;
             vy = 0;
         }
-        cout << "velocidade" << vx << ", " << vy << endl;
-        Projetil* proj = new Projetil(7, Vector2f(getPosicao().x, getPosicao().y - 50), pfase, pGerenciadorGrafico, vx, vy);
+        Projetil* proj = new Projetil(forcaProjetil, Vector2f(getPosicao().x, getPosicao().y - 50), pfase, pGerenciadorGrafico, vx, vy);
         pfase->adEntidade(static_cast<Entidade*> (proj));
         podeAtirar = false;
         auxTempo = pfase->get_tempo();

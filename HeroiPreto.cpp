@@ -3,10 +3,9 @@
 #include <cmath>
 
 HeroiPreto::HeroiPreto(Vector2f p, Fase* f, GerenciadorGrafico* pgg, HeroiVerde* j):
-    Jogador (p, f, pgg, 100000, 0.1, "./imagens/heroiPreto.png"),
-    tirosTambor(5),
+    Jogador (p, f, pgg, 1000, 0.1, "./imagens/heroiPreto.png"),
     jog2(j),
-    auxTempo(0.0)
+    freqDisparos(300.0)
 {}
 
 void HeroiPreto::mover()
@@ -51,9 +50,6 @@ void HeroiPreto::atacar()
         Vector2f posicaoMouse = pGerenciadorGrafico->converteCoord(Mouse::getPosition());
         posicaoMouse.y-=1875;
         float tg = (posicaoMouse.y - getPosicao().y - 50) / (posicaoMouse.x - getPosicao().x);
-        cout << "mouse " << posicaoMouse.x << ", " << posicaoMouse.y - 50 << endl;
-        cout << "personagem " << getPosicao().x << ", " << getPosicao().y << endl;
-        cout << "tangente " << tg << endl;
         if (tg < -0.08)
         {
             if(posicaoMouse.y < getPosicao().y)
@@ -78,7 +74,6 @@ void HeroiPreto::atacar()
                 vx = -v;
             vy = 0;
         }
-        cout << "velocidade" << vx << ", " << vy << endl;
         Projetil* proj = new Projetil(7, Vector2f(getPosicao().x, getPosicao().y - 50), pfase, pGerenciadorGrafico, vx, vy);
         pfase->adEntidade(static_cast<Entidade*> (proj));
         podeAtirar = false;
@@ -86,7 +81,7 @@ void HeroiPreto::atacar()
         tirosTambor--;
     }
 
-    else if ((pfase->get_tempo() - auxTempo) > 300.0 && !Keyboard::isKeyPressed(Keyboard::F))
+    else if ((pfase->get_tempo() - auxTempo) > freqDisparos && !Keyboard::isKeyPressed(Keyboard::F))
     {
         if (tirosTambor > 0)
             podeAtirar = true;

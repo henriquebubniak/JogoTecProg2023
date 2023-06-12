@@ -1,14 +1,13 @@
 #pragma once
 
-#include "Personagem.h"
+#include "Jogador.h"
 
 class HeroiPreto;
-class HeroiVerde: public Personagem
+class HeroiVerde: public Jogador
 {
 protected:
-    float auxTempo;
-    int tirosTambor;
     HeroiPreto* jog1;
+    int forcaProjetil;
 public:
     //Construtora e destrutora
     HeroiVerde(Vector2f p = Vector2f(0.f, 0.f), Fase* f = NULL, GerenciadorGrafico* pgg = NULL, HeroiPreto* j = NULL);
